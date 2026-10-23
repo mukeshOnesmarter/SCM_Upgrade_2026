@@ -1,0 +1,182 @@
+.procurementInventory {
+  display: flex;
+  flex-direction: column;
+  border: $border;
+  border-radius: $radius;
+  overflow: hidden;
+  .procurementType {
+    display: grid;
+    grid-template-columns: 200px repeat(5, 1fr);
+    align-items: center;
+    background: #f7f7f7;
+    .item {
+      position: relative;
+      text-align: right; 
+      border-right: $border;
+      padding: 0 0.75rem;
+      font-weight: 600;
+      &:first-of-type {
+        padding: 0.75rem;
+        text-align: left;
+      }
+      &:last-of-type {
+        border-right: none;
+      }
+      small {
+        display: block;
+        font-weight: 400;
+        color: $text-gray;
+      }
+    }
+  }
+  .motherboardAlert {
+    text-align: right; 
+    border-top: $border;
+    background: #f7f7f7;
+    p {
+      margin-bottom: 0;
+      padding: 0.5rem 0.75rem;
+      line-height: 1.7;
+      small {
+        display: block;
+        font-style: italic;
+        color: $text-gray;
+      }
+    }
+  }
+  .distributionCenter {
+    display: flex;
+    flex-direction: column;
+    border-top: $border; 
+    overflow: hidden;
+    .regionTitle {
+      padding: 0.375rem 0.75rem;
+      border-bottom: $border;
+      font-weight: 600;
+      font-size: 1rem;
+      color: $text-primary;
+      small {
+        display: block;
+        font-weight: 400;
+        color: $text-gray;
+      }
+    }
+    .labelValueGroup {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .labelValue {
+      border-bottom: $border;
+      display: grid;
+      grid-template-columns: 200px auto;
+      background: #fff;
+      &.highlight {
+        background: #f7f7f7;
+        text-transform: uppercase;
+        color: $text-success;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      label {
+        font-weight: 600;
+        background: #f6f6f6;
+        border-right: $border;
+        padding: 0.375rem 0.75rem;
+        span {
+          width: 15px;
+          display: inline-block;
+          font-weight: 400;
+          font-size: 0.75rem;
+          &.addition {
+            color: $text-success;
+          }
+          &.subtraction {
+            color: $text-error;
+          }
+          &.hide {
+            visibility: hidden;
+          }
+        }
+      }
+      .inventoryContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: flex-end;
+        .item {
+          text-align: right;
+          padding: 0.375rem 0.75rem;
+          border-right: $border;
+          &:last-of-type {
+            border-right: none;
+          } 
+          small {
+            display: block;
+            text-align: right;
+            text-transform: capitalize;
+            color: $text-gray;
+          }
+          &.motherboard {
+            position: relative;
+            img {
+              width: 22px;
+              position: absolute;
+              left: 0.5rem;
+              top: 50%;
+              transform: translateY(-50%);
+            } 
+          } 
+        }
+      } 
+      &.endingInventory {
+        background: #f7f7f7;
+        font-weight: 600;
+      }
+    }
+    .productionContainer {
+      display: flex;
+      flex-direction: column;
+      background: #f6f6f6;
+      > label[for="productiontype"] {
+        font-weight: 600;
+        background: #f6f6f6; 
+        padding: 0.375rem 0.75rem;
+        span {
+          width: 15px;
+          display: inline-block;
+          font-weight: 400;
+          font-size: 0.75rem;
+          color: $text-error;
+        }
+      }
+      .productContainer {
+        display: flex;
+        flex-direction: column;
+        border-bottom: $border;
+        .product {
+          display: grid;
+          grid-template-columns: 199px repeat(5, 1fr);
+          align-items: center; 
+          border-top: $border; 
+          background: #f6f6f6; 
+          label {
+            padding: 0 0.75rem;
+            padding-left: 1.75rem;
+            small {
+              display: block;
+              color: $text-gray;
+            }
+          }
+          .item {
+            position: relative;
+            text-align: right; 
+            border-left: $border;
+            padding: 0.75rem 0.75rem;
+            background: #fff; 
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+//FONTS & SIZE
+$bodyFont: 'Inter', sans-serif;
+$bodyFontsize: 0.875rem;
+
+//COLOR
+$clr-primary : #ed1c24;
+$clr-secondary : #404565;
+
+//TEXT-COLOR
+$text-body : #000000;
+$text-primary : #ed1c24;
+$text-secondary : #404565;
+$text-help : #a7a7a7;
+$text-info : #e5a000;
+$text-gray : #a3a3a3;
+
+$text-success : #339900;
+$text-error : #cc3300;
+$text-warning : #741e11; 
+
+//BACKGROUND COLOR
+$bg-primary : #ed1c24;
+$bg-secondary : #404565;
+$bg-gray : #a3a3a3;
+$bg-input-yellow : #FFFF00; 
+
+//ALERT BACKGROUND
+$bg-success : #339900;
+$bg-error : #cc3300;
+$bg-warning : #741e11;
+
+//TRANSITION
+$transition: all ease 0.4s;
+
+//TRANSFORM
+$imgTransform: scale(1.1);
+
+//RADIUS
+$radius: .25rem;
+
+//BORDER
+$border: 1px solid #dddcdb;
+$border-primary: 1px solid #ed1c24;
+$border-secondary: 1px solid #404565;
+$border-success: 1px solid #339900;
+$border-yellow: 1px solid #dada00; 
+
+//BREAK POINT
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl:1200px

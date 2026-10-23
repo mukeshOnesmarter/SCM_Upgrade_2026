@@ -1,0 +1,310 @@
+@import "layout";
+@import "component";
+.authentication {
+  @extend .wrapContainer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 8%;
+    z-index: 1000;
+  }
+  .waitingContainer {
+    @extend .wrapContainer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 500;
+    background: transparentize(#fff, 0.3);
+    display: none;
+    .contentWrapper {
+      @extend .wrapContainer;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding-top: 10%;
+    }
+  }
+  .alertMessage {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    color: $text-body;
+    z-index: 200;
+    display: none;
+    color: $text-error;
+  }
+
+  .authContainer {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    // LOGIN FORM
+    .loginForm {
+      background: #fff;
+      padding: 1.25rem;
+      border: $border;
+      border-radius: 0.5rem;
+      text-align: left;
+      h5 {
+        padding-left: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-weight: 500;
+        font-size: 1.25rem;
+      }
+      .inputComponent {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        label[for="title"] {
+          padding: 0 0 0.5rem 0.75rem;
+          & + div.inputField {
+            border-radius: $radius;
+            border: $border;
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 30px;
+            padding: 0.5rem 0.75rem;
+            column-gap: 0.75rem;
+            input[type="email"],
+            input[type="password"],
+            input[type="text"] {
+              font-family: inherit;
+              font-size: 0.875rem;
+              font-weight: 400;
+              line-height: inherit;
+              display: block;
+              padding: 0;
+              border: 1px solid #fff;
+              outline: none;
+              background: none;
+              appearance: none;
+              box-shadow: none;
+              &:focus {
+                outline: none;
+              }
+            }
+            .icon {
+              color: $text-secondary;
+              position: relative;
+              &:before {
+                content: "";
+                width: 1px;
+                height: 80%;
+                background: #b9b9b9;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              a,
+              i.fa {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $text-secondary;
+              }
+            }
+          }
+        }
+        &.action_button {
+          padding: 0 0.75rem;
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 0;
+          button {
+            @include inputButton;
+          }
+          a {
+            color: $text-primary;
+            &:hover {
+              color: $text-secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.loginSuccessfully {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  background: transparentize($color: #fff, $amount: 0.5);
+  display: none;
+  .alertContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 3rem;
+    .success {
+      background: $bg-success;
+      color: #fff !important;
+      padding: 0.75rem;
+      border-radius: $radius;
+      position: relative;
+      display: flex;
+      column-gap: 0.5rem;
+      align-items: flex-start;
+      span small {
+        display: block;
+      }
+    }
+  }
+}
+
+.forgetPassword {
+  @extend .wrapContainer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  .authContainer {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    // LOGIN FORM
+    .loginForm {
+      background: #fff;
+      padding: 1.25rem;
+      border: $border;
+      border-radius: 0.5rem;
+      text-align: left;
+      h5 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 1.25rem;
+        & + p {
+          margin-bottom: 1rem;
+          small {
+            display: block;
+            color: $text-gray;
+          }
+        }
+      }
+      .inputComponent {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        label[for="title"] {
+          padding-bottom: 0.5rem;
+          & + div.inputField {
+            border-radius: $radius;
+            border: $border;
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 30px;
+            padding: 0.5rem 0.75rem;
+            column-gap: 0.75rem;
+            input[type="email"] {
+              font-family: inherit;
+              font-size: 0.875rem;
+              font-weight: 400;
+              line-height: inherit;
+              display: block;
+              padding: 0;
+              border: 1px solid #fff;
+              outline: none;
+              background: none;
+              appearance: none;
+              box-shadow: none;
+              &:focus {
+                outline: none;
+              }
+            }
+            .icon {
+              color: $text-secondary;
+              position: relative;
+              &:before {
+                content: "";
+                width: 1px;
+                height: 80%;
+                background: #b9b9b9;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              a,
+              i.fa {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $text-secondary;
+              }
+            }
+            & + small.error_text {
+              display: block;
+              padding-top: 0.5rem;
+              color: $text-error;
+            }
+          }
+        }
+        &.action_button {
+          align-items: center;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 0;
+          button {
+            @include inputButton;
+          }
+          a {
+            color: $text-primary;
+            &:hover {
+              color: $text-secondary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // REVERT SUCCESS
+  .revertSuccess {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    text-align: left;
+    h5 {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 1.25rem;
+      & + p {
+        margin-bottom: 1rem;
+        small {
+          display: block;
+          color: $text-gray;
+        }
+        & + a {
+          display: inline-block;
+          color: $text-primary;
+        }
+      }
+    }
+  }
+}

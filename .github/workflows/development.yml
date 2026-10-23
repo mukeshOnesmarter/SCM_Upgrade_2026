@@ -1,0 +1,147 @@
+name: development
+
+# Tests every push and pull request. A push to the development branch that
+# passes is deployed to https://development.flexee.org (GoDaddy shared hosting).
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: development-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: ci
+          MYSQL_DATABASE: scm_test
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pci"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+
+    env:
+      DB_CONNECTION: mysql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_DATABASE: scm_test
+      DB_USERNAME: root
+      DB_PASSWORD: ci
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        with:
+          php-version: '8.4'
+          extensions: bcmath, ctype, curl, dom, fileinfo, intl, mbstring, pdo_mysql, xml, zip
+          coverage: none
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install PHP packages
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Build pages' assets
+        run: npm ci && npm run build
+
+      - name: Code style
+        run: vendor/bin/pint --test
+
+      # phpunit.xml's SQLite settings don't override the MySQL ones set above,
+      # so the tests run against MySQL 8.0 like the server.
+      - name: Tests (against MySQL 8.0)
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan test
+
+      # Plays a fixed course and compares every figure with the live code's
+      # recording (tests/Baseline/scm_baseline_v1.json). Takes a few minutes.
+      - name: Figures match the live recording
+        run: php -d memory_limit=2G artisan test --group=baseline
+
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/development'
+    runs-on: ubuntu-24.04
+    environment: development
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        with:
+          php-version: '8.4'
+          extensions: bcmath, ctype, curl, dom, fileinfo, intl, mbstring, pdo_mysql, xml, zip
+          coverage: none
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Build for the server
+        run: |
+          composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+          npm ci && npm run build
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy && chmod 600 ~/.ssh/deploy
+          printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+      - name: Copy files to the server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+        run: |
+          rsync -az --delete -e "ssh -i ~/.ssh/deploy" \
+            --exclude='.env' --exclude='.git/' --exclude='.github/' \
+            --exclude='node_modules/' --exclude='tests/' \
+            --exclude='storage/' --exclude='bootstrap/cache/*.php' \
+            ./ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+
+      - name: Migrate, record the commit and refresh caches
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+          DEPLOY_PHP: ${{ vars.DEPLOY_PHP }}
+        run: |
+          ssh -i ~/.ssh/deploy "$DEPLOY_USER@$DEPLOY_HOST" bash -se <<EOF
+          set -euo pipefail
+          cd "$DEPLOY_PATH"
+          test -f .env || { echo "No .env on the server. Write it first (setup note, step 7)."; exit 1; }
+          mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+          grep -q '^GIT_COMMIT=' .env && sed -i "s/^GIT_COMMIT=.*/GIT_COMMIT=${GITHUB_SHA}/" .env || echo "GIT_COMMIT=${GITHUB_SHA}" >> .env
+          "$DEPLOY_PHP" artisan migrate --force
+          "$DEPLOY_PHP" artisan optimize
+          "$DEPLOY_PHP" artisan queue:restart
+          EOF
+
+      - name: Check the site answers with this commit
+        run: |
+          sleep 5
+          curl -fsS https://development.flexee.org/up > /dev/null
+          curl -fsS https://development.flexee.org/ | grep -q "Build ${GITHUB_SHA::7}"

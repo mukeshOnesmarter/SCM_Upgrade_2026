@@ -1,0 +1,28 @@
+.breadCrumb {
+  width: auto;
+  display: inline-block;
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    li {
+      position: relative;
+      &:after {
+        content: "\f105";
+        font-family: "FontAwesome";
+        display: inline-block;
+        margin: 0 0.5rem;
+      }
+      &:last-of-type {
+        a {
+          pointer-events: none;
+          cursor: text;
+        }
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.institutePayment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .summaryContainer {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    margin-bottom: 1rem;
+    border-radius: $radius;
+    p:last-of-type {
+      margin-bottom: 0rem;
+      font-style: italic;
+    }
+    > h5 {
+      border-bottom: $border;
+      padding: 0.5rem;
+      font-size: 1rem;
+      color: $text-primary;
+      margin-bottom: 0;
+      small {
+        display: block;
+        font-size: 0.875rem;
+        color: $text-body;
+        padding-top: 0.25rem;
+        font-weight: 400;
+      }
+      & + .infoContainer {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        &.resetPadding {
+          padding: 0 !important;
+        }
+        ul {
+          list-style-type: none;
+          margin-bottom: 0;
+        }
+        .student {
+          position: relative;
+          padding: 0.25rem 0.5rem;
+          border-bottom: $border;
+          &:nth-of-type(even) {
+            background: #f6f6f6;
+          }
+          .item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+          }
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+        .requestSubmission {
+          display: flex;
+          flex-direction: column;
+          .inputField {
+            position: relative;
+            margin-bottom: 0.75rem;
+            row-gap: 0.25rem;
+            display: flex;
+            flex-direction: column;
+            input[type="text"] {
+               @include input;
+               width: 500px;
+            }
+            & + label {
+              margin-bottom: 0.75rem;
+              position: relative;
+              padding-left: 1.25rem;
+              input[type="checkbox"] {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              & + h6 {
+                margin-bottom: 0;
+              }
+            }
+          } 
+          .submitButton {
+            position: relative;
+            padding-top: 0.75rem;
+            button {
+              font-size: 1rem;
+              font-weight: 500;
+              border: none;
+              outline: none;
+              display: inline-block;
+              padding: 0.5rem 0.75rem;
+              background: $bg-success;
+              color: #fff;
+              border-radius: 2rem;
+              transition: $transition;
+              cursor: pointer;
+              &:hover {
+                background: darken($color: $bg-success, $amount: 2%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+@import "layout";
+@import "component";
+
+@import "template/templateCrud";
+
+.registration {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  .registrationContainer {
+    width: 100%;
+    max-width: 600px;
+    border: $border;
+    border-radius: $radius;
+    padding: 0rem 2rem;
+    .crud_header {
+      position: relative;
+      padding: 1rem 0;
+      h5 {
+        margin-bottom: 0;
+        color: $text-primary;
+        &:before {
+          content: "";
+          width: 70px;
+          height: 1px;
+          background: $bg-primary;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+    .dataForm {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      .dataRow {
+        display: flex;
+        column-gap: 1rem;
+        .inputComponent {
+          flex: 1;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 0.75rem;
+          label[for="title"] {
+            padding-bottom: 0.25rem;
+            & + div.inputField {
+              border-radius: $radius;
+              border: $border;
+              position: relative;
+              display: grid;
+              grid-template-columns: auto 30px;
+              padding: 0.5rem 0.75rem;
+              column-gap: 0.75rem;
+              input[type="email"],
+              input[type="password"],
+              input[type="text"] {
+                font-family: inherit;
+                font-size: 0.875rem;
+                font-weight: 400;
+                line-height: inherit;
+                display: block;
+                padding: 0;
+                border: 1px solid #fff;
+                outline: none;
+                background: none;
+                appearance: none;
+                box-shadow: none;
+                &:focus {
+                  outline: none;
+                }
+              }
+              .icon {
+                color: $text-secondary;
+                position: relative;
+                &:before {
+                  content: "";
+                  width: 1px;
+                  height: 80%;
+                  background: #b9b9b9;
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+                a,
+                i.fa {
+                  position: absolute;
+                  right: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  color: $text-secondary;
+                }
+              }
+              & + small.error_text {
+                display: block;
+                padding-top: 2px;
+                color: $text-error;
+              }
+            }
+          }
+          &.action_button {
+            padding-top: 0.25rem;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 0;
+            button {
+              @include inputButton;
+            }
+            a {
+              color: $text-primary;
+              &:hover {
+                color: $text-secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // accountVerified
+  .accountVerified {
+    width: 100%;
+    max-width: 700px;
+    padding: 1rem;
+    border-radius: $radius;
+    border: $border;
+    h3 {
+      color: $text-success;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+      position: relative;
+      padding-left: 1.75rem;
+      img {
+        width: 22px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  //alertContainer
+  .alertContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    .alert {
+      width: 100%;
+      max-width: 700px;
+      padding: 1rem;
+      border-radius: $radius;
+      border: $border;
+      h4 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+      }
+      &.alert-error,
+      &.alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+      }
+      &.alert-warning {
+        color: #856404;
+        background: #fff3cd;
+        border-color: #ffeeba;
+      }
+      &.alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+      }
+    }
+  }
+}

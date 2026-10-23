@@ -1,0 +1,129 @@
+.forecastingAccuracy {
+  display: flex;
+  flex-direction: column;
+  .forecastingAccuracy,
+  .salesHistory {
+    position: relative;
+    border: $border;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: $radius;
+    overflow: hidden;
+    label[for="sectionTitle"] {
+      padding: 0.75rem 0.75rem;
+      border-radius: $border;
+      background: #f7f7f7;
+      font-weight: 600;
+      color: $text-primary;
+      border-bottom: $border;
+    }
+    .regionContainer {
+      display: flex;
+      flex-direction: column;
+      .region {
+        border-bottom: $border;
+        display: grid;
+        grid-template-columns: 130px auto;
+        align-items: center;
+        &:last-of-type {
+          border-bottom: none;
+        }
+        .regionLable {
+          padding: 0.5rem 0.75rem;
+          font-weight: 500;
+          text-align: center;
+          small {
+            display: block;
+            font-weight: 400;
+          }
+        }
+        .productContainer {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          .product {
+            flex: 1;
+            position: relative;
+            border-bottom: $border;
+            display: grid;
+            grid-template-columns: 100px auto;
+            align-items: center;
+            &:last-of-type {
+              border-bottom: none;
+            }
+            > label[for="productTitle"] {
+              font-weight: 500;
+              padding: 0.5rem;
+              border-right: $border;
+              font-size: 0.75rem;
+            }
+          }
+        }
+        .salesContainer,
+        .accuracyContainer {
+          position: relative;
+        }
+        .accuracyContainer {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          border-left: $border;
+          .headSection,
+          .statistics {
+            display: grid;
+            grid-template-columns: 100px repeat(3, 1fr);
+            border-bottom: $border;
+            background: #f7f7f7;
+            .item {
+              position: relative;
+              border-right: $border;
+              text-align: center;
+              font-weight: 600;
+              &:last-of-type {
+                border-right: none;
+              }
+              label[for="title"] {
+                display: block;
+                border-bottom: $border;
+                padding: 0.25rem;  
+              } 
+              ul {
+                margin-bottom: 0;
+                list-style-type: none;
+                display: flex;
+                li {
+                  flex: 1;
+                  text-align: center;
+                  border-right: $border;
+                  padding: 0.25rem;
+                  font-weight: 400;
+                  font-size: 0.75rem;
+                  &:last-of-type {
+                    border-right: none;
+                  }
+                }
+              }
+            }
+          }
+          .statistics {
+            grid-template-columns: repeat(3, 1fr);
+            background: none;
+            border-bottom: none;
+            .item ul li {
+              padding: 0.5rem 0;
+            }
+          }
+        }
+        .salesContainer {
+          position: relative;
+          border-left: $border;
+        }
+      }
+    }
+  }
+
+  .noteContainer {
+    @extend %noteContainer;
+  }
+}

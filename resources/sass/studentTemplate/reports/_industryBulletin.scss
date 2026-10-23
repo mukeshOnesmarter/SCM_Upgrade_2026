@@ -1,0 +1,40 @@
+.industryBulletin {
+  display: flex;
+  flex-direction: column;
+  .bulletinSection {
+    border: $border;
+    border-radius: $radius;
+    margin-bottom: 1rem;
+    > h5 {
+      font-size: 1rem;
+      padding: 0.75rem;
+      border-bottom: $border;
+      margin-bottom: 0rem;
+      & + p {
+        margin-bottom: 0;
+        font-weight: 500;
+        padding: 0.25rem 0.75rem;
+      }
+      & + ul {
+        margin-bottom: 0;
+        list-style-type: none;
+        li {
+          position: relative;
+          padding: 0.25rem 0.75rem;
+          display: flex;
+          border-bottom: $border;
+          &:nth-of-type(odd) {
+            background: #f6f6f6;
+          }
+          &:last-of-type {
+            border-bottom: none;
+          }
+          span {
+            margin-left: auto;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

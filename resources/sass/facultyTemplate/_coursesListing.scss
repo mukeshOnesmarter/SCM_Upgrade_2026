@@ -1,0 +1,101 @@
+.coursesTemplate {
+  @extend .wrapContainer;
+  // COURSELISTING
+  .courseListing {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    .course {
+      display: grid;
+      grid-template-columns: auto 100px;
+      border-bottom: $border;
+      padding: 0.75rem;
+      align-items: center;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      .quickInfo {
+        display: flex;
+        flex-direction: column;
+        h5 {
+          margin-bottom: 0.25rem;
+          font-size: 1rem;
+        }
+        .wrapTitle {
+          display: flex;
+          font-size: 0.75rem;
+          column-gap: 1rem;
+          span {
+            &.status_completed {
+              color: $text-info;
+            }
+            &.status_progress {
+              color: $text-success;
+            }
+          }
+          .quarter {
+            display: inline-block;
+            position: relative;
+            padding-left: 1.25rem;
+            text-transform: uppercase;
+            color: #7b7b7b;
+            img {
+              height: 16px;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            span {
+              color: $text-primary;
+            }
+          }
+        }
+        .groupsWrap {
+          position: relative;
+          display: none;
+          margin-top: 0.25rem;
+          .groups {
+            display: flex;
+            column-gap: 1rem;
+            margin-top: 0.25rem;
+            .group {
+              border-radius: 2rem;
+              border: 2px solid #14ae5c;
+              position: relative;
+              padding: 0.25rem 1rem;
+              font-size: 0.75rem;
+              position: relative;
+              padding-left: 135px;
+              font-weight: 500px;
+              overflow: hidden;
+              span {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                border: 2px solid #14ae5c;
+                border-radius: 2rem;
+                background: #ebffee;
+                position: absolute;
+                left: -2px;
+                top: -1px;
+                z-index: 100;
+                background: url("/images/icon/simulation-group.svg") no-repeat 1rem center;
+                color: #14ae5c;
+                padding-left: 3.25rem;
+              }
+            }
+          }
+        }
+      }
+      &.active {
+        border: $border;
+        .quickInfo {
+          position: relative;
+          .groupsWrap {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,209 @@
+.staticTemplate {
+  @extend .wrapContainer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .templateBody {
+    @extend .wrapContainer;
+    position: relative;
+    
+  }
+}
+
+#staticTemplate {
+  position: relative;
+  .facultyManagement,
+  .regionalInsights,
+  .firmDirectory,
+  .supplierOverview,
+  .managedProduct {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    border-radius: $radius;
+    margin-bottom: 1rem;
+    // BUTTONCREATE
+    .buttonCreate {
+      text-align: right;
+      padding: 1rem;
+      background: #f6f6f6;
+      border-bottom: $border;
+      a {
+        display: inline-block;
+        border-radius: 2rem;
+        padding: 0.25rem 1rem;
+        background: $bg-primary;
+        color: #fff;
+        position: relative;
+        padding-left: 2rem;
+        img {
+          position: absolute;
+          left: 4px;
+          top: 3px;
+          width: 22px;
+          height: 22px;
+        }
+      }
+    } 
+    .tableRow {
+      display: flex;
+      column-gap: 1rem;
+      border-bottom: $border;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      .item {
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  // STUDENT LISTING
+  .facultyManagement {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    border-radius: $radius;
+    .tableRow {
+      display: grid;
+      grid-template-columns: 70px auto;
+      align-items: center;
+      column-gap: 0.25rem;
+      padding: 0 1rem;
+      border-bottom: $border;
+      transition: $transition;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      &:hover {
+        background: #f6f6f6;
+      }
+      .item {
+        padding: 0.25rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        &.profilePicture {
+          position: relative;
+          padding: 0;
+          img {
+            border-radius: 100%;
+            width: 50px;
+          }
+        }
+        &.title {
+          position: relative;
+          label[for="heading"] {
+            font-weight: 500;
+            & + small {
+              display: block;
+              i.fa {
+                color: $text-primary;
+                display: inline-block;
+                margin-right: 0.25rem;
+              }
+              & + small {
+                color: $text-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // SUPPLIEROVERVIEW
+  .supplierManagement {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    border-radius: $radius;
+    margin-bottom: 1rem;
+    .supplier {
+      display: flex;
+      flex-direction: column;
+      border-bottom: $border;
+      padding: 0.25rem 0.75rem;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      small {
+        display: block;
+        color: $text-primary;
+        & + label[for="heading"] {
+          font-weight: 400;
+          display: block;
+          & + p {
+            margin-bottom: 0;
+            font-size: 0.75rem;
+            color: #7b7b7b;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  // PRODUCT MANAGEMENT
+  .productManagement {
+    display: flex; 
+    flex-direction: column;
+    row-gap: 1rem;
+    .product {
+      display: flex; 
+      border: $border;
+      border-radius: $radius;
+      overflow: hidden;
+      .productTitle {
+        padding: 0.5rem 0.75rem;
+        margin-right: auto;
+        small {
+          display: block;
+          color: $text-primary;
+          & + label[for="heading"] {
+            font-weight: 400;
+            display: block;
+            & + span {
+              display: block;
+              color: $text-body;
+              & + p {
+                margin-bottom: 0;
+                font-size: 0.75rem;
+                color: #7b7b7b;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+      .materialtype {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        background: #f6f6f6;
+        border-left: $border;
+        > label[for="materialtype"] {
+          font-weight: 500;
+          padding: 0.25rem 0.75rem;
+        }
+        .collection {
+          position: relative;
+          ul {
+            list-style-type: none;
+            margin-left: 0.75rem;
+            margin-bottom: 0.25rem;
+            li {
+              display: flex;
+              align-items: center;
+              padding-right: 0.75rem;
+              span {
+                width: 40px;
+                margin-left: auto;
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

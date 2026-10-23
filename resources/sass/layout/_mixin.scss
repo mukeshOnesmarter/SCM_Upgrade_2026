@@ -1,0 +1,93 @@
+//IMAGE GRAY SCALE
+@mixin imgGrayscale {
+	filter: gray;
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+}
+
+//IMAGE TRANSFORM
+@mixin imgTransform {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+}
+
+//MEDIA QUERY WITH MAX
+@mixin media-max($device-width) {
+	@media only screen and (max-width: $device-width) {
+		@content;
+	}
+}
+
+//MEDIA QUERY WITH MIN
+@mixin media-min($device-width) {
+	@media only screen and (min-width: $device-width) {
+		@content;
+	}
+}
+
+//INPUT TYPE DEFAULT
+@mixin input($radius: 0.25rem) {
+	display: block;
+	font-family: inherit;
+	font-size: 0.875rem;
+	line-height: inherit;
+	border: $border;
+	background: #fff;
+	border-radius: $radius;
+	padding: 0.5rem;
+	transition: $transition;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+//INPUT TYPE TEXT
+@mixin inputText($width: 100%) {
+	@include input;
+	width: $width;
+}
+
+//INPUT TEXTAREA
+@mixin textarea($width: 100%) {
+	@include input;
+	width: $width;
+}
+
+// SELECT BOX
+@mixin selectBox($width: 100%) {
+	@include input;
+	width: $width;
+}
+
+//INPUT TYPE BUTTON
+@mixin inputButton($width: auto) {
+	@include input;
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	width: $width;
+	background-color: $bg-primary;
+	border: 1px solid $clr-primary;
+	color: #fff;
+	cursor: pointer;
+	transition: $transition; 
+}
+
+@mixin button {
+	display: inline-block;
+	padding: 0.5rem 0.75rem;
+	border-radius: $radius;
+	background: $bg-primary;
+	transition: $transition;
+	color: #fff;
+	margin-left: 0.25rem;
+	font-size: 0.75rem;
+	font-weight: 400;
+	i.fa {
+		margin-right: 0.25rem;
+	} 
+}
+
+@mixin anchorButton {
+	@include button;
+}

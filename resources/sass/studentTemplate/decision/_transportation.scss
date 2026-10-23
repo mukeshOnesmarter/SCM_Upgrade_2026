@@ -1,0 +1,231 @@
+.transportationSection {
+  display: flex;
+  flex-direction: column;
+  .crossDockingAlert {
+    margin: -1.25rem 0rem 1.25rem;
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    border-bottom: $border;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+    border-top: 1px solid #efda9b;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    &.expand {
+      padding: 1rem 2rem;
+      border-top: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+      margin: -1.25rem -2rem 1.25rem;
+    }
+  }
+  .distributioncenter {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    > .headingTitle {
+      position: relative;
+      margin-bottom: 0.5rem;
+      padding-left: 3rem;
+      > img {
+        width: 36px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      small {
+        display: block;
+      }
+    }
+    .actionButton {
+      text-align: right;
+      button {
+        @extend %button;
+      }
+    }
+    .productManufacturing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 250px;
+      border: $border;
+      border-radius: $radius;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      .product,
+      .crossDocking {
+        position: relative;
+        border-right: $border;
+        &:last-of-type {
+          border-right: none;
+        }
+        .productTitle,
+        .dockingTitle {
+          border-bottom: $border;
+          padding: 0.5rem 1rem;
+          background: #f6f6f6;
+          > label {
+            display: block;
+            font-weight: 500;
+          }
+        }
+        .shipmentcarrier,
+        .dockingcarrier {
+          display: flex;
+          flex-direction: column;
+          .shipmentMode {
+            display: grid;
+            grid-template-columns: 100px repeat(2, 1fr);
+            border-bottom: $border;
+            background: #f6f6f6;
+            span {
+              padding: 0.5rem 0.75rem;
+              padding-left: 2.5rem;
+              position: relative;
+              &:first-of-type {
+                padding-left: 0.75rem;
+              }
+              img {
+                position: absolute;
+                left: 0.75rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 24px;
+              }
+            }
+          }
+          .carrier {
+            position: relative;
+            border-bottom: $border;
+            display: grid;
+            grid-template-columns: 100px auto auto;
+            &:last-of-type {
+              border-bottom: none;
+            }
+            .carrierName {
+              background: #f7f7f7;
+              display: flex;
+              align-items: center;
+              font-weight: 500;
+              padding-left: 0.75rem;
+            }
+            .quarter {
+              display: flex;
+              flex-direction: column;
+              span {
+                border-bottom: $border;
+                padding: 0.625rem 0.5rem 0.688rem;
+                font-size: 0.75rem;
+                line-height: 1.3;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+              }
+            }
+            .supplyChannel {
+              display: flex;
+              border-left: $border;
+              .channel {
+                flex: 1;
+                border-right: $border;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                &:last-of-type {
+                  border-right: none;
+                }
+                .demandrecorded {
+                  display: flex;
+                  flex-direction: column;
+                  position: relative;
+                  input[type="text"] {
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 0.5rem;
+                    outline: none;
+                    border: none;
+                    position: relative;
+                    transition: $transition;
+                    background: $bg-input-yellow;
+                    &.crossdocking {
+                      font-size: 0.75rem;
+                      height: 37px;
+                      text-align: center;
+                    }
+                    &::placeholder {
+                      color: #929203;
+                    }
+                    &:disabled {
+                      cursor: not-allowed;
+                      padding: 0.5rem;
+                      background: none;
+                      border-bottom: $border;
+                    }
+                    &:focus {
+                      outline: none;
+                      background: none;
+                      & + i.fa {
+                        opacity: 1;
+                        color: $text-primary;
+                      }
+                    }
+                  }
+                  i.fa {
+                    position: absolute;
+                    right: 1rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 100;
+                    opacity: 0;
+                    transition: $transition;
+                  }
+                  &:hover {
+                    position: relative;
+                    i.fa {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .crossDocking {
+        position: relative;
+        .dockingcarrier {
+          display: flex;
+          flex-direction: column;
+          .carrier {
+            position: relative;
+            border-bottom: $border;
+            display: grid;
+            grid-template-columns: 100px auto auto;
+            &:last-of-type {
+              border-bottom: none;
+            }
+            .availcrossDocking {
+              height: 38px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .notApplicable {
+              grid-column: 2 / 4;
+              height: 75px;
+              text-align: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: not-allowed;
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

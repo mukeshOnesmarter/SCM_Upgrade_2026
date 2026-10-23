@@ -1,0 +1,220 @@
+// COURSEHEADER
+
+.coursesTemplate {
+  @extend .wrapContainer;
+  .quarterInfo {
+    display: flex;
+    flex-direction: column;
+    .sectionTitle {
+      position: relative;
+      h4 {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        & + p {
+          margin-bottom: 0.5rem;
+          & + ul {
+            list-style-type: none;
+            margin-bottom: 0.5rem;
+            & + p {
+              margin-bottom: 0;
+              a {
+                display: inline-block;
+                border-radius: 2rem;
+                background: $bg-primary;
+                color: #fff;
+                font-size: 0.75rem;
+                padding: 0.25rem 0.75rem;
+                i.fa {
+                  margin-right: 0.25rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .wrapRegion {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 2rem 0;
+      column-gap: 0.75rem;
+      margin-top: 0;
+      .region {
+        border-radius: $radius;
+        border: $border;
+        text-align: center;
+        > .title {
+          padding: 0.5rem;
+          font-size: rem;
+          font-weight: 500;
+          color: $text-primary;
+          border-bottom: $border;
+        }
+        .productWrap {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          .product {
+            border-right: $border;
+            &:nth-of-type(even) {
+              background: #f1f1f1;
+            }
+            &:last-of-type {
+              border-right: none;
+            }
+            > .title {
+              text-align: center;
+              border-bottom: $border;
+              background: #f6f6f6;
+              padding: 0.25rem;
+              small {
+                font-size: 0.75rem;
+              }
+              span {
+                display: block;
+                font-weight: 500;
+              }
+            }
+            .firmsWrap {
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              .firm {
+                border-bottom: $border;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                > .title {
+                  text-align: center;
+                  border-bottom: $border;
+                  background: #f6f6f6;
+                  padding: 0.25rem;
+                  small {
+                    font-size: 0.75rem;
+                    display: block;
+                  }
+                  span {
+                    display: block;
+                    font-weight: 500;
+                  }
+                }
+                .demandChannelWrap {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  .demandChannel {
+                    text-align: center;
+                    padding: 0.25rem 0;
+                    font-size: 0.75rem;
+                    .title {
+                      position: relative;
+                      margin-bottom: 0.25rem;
+                      span {
+                        display: block;
+                        small {
+                          display: block;
+                        }
+                      }
+                      & + ul {
+                        list-style-type: none;
+                        margin-bottom: 0;
+                        li {
+                          position: relative;
+                          small {
+                            display: block;
+                            &.initialDemand {
+                              color: $text-info;
+                            }
+                            &.forecastDemand {
+                              color: $text-success;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // ANALYSISSUMMARY
+    .analysisSummary {
+      position: relative;
+      margin-bottom: 2rem;
+      margin-bottom: 2rem;
+      table {
+        width: 100%;
+        display: table;
+        border-collapse: collapse;
+        border: $border;
+        tbody {
+          border: $border;
+          tr {
+            border: $border;
+            &.topheader th {
+              text-align: center;
+            }
+            th,
+            td {
+              text-align: left;
+              &.market_price {
+                width: 80px!important;
+                text-align: center;
+              }
+            }
+            th.past,
+            td.past {
+              width: 60px;
+              background: #eaeaea;
+              font-weight: 500;
+              text-align: center;
+            }
+            th.demandShifted,
+            td.demandShifted {
+              font-weight: 700;
+              text-align: center;
+            }
+            th.center,
+            td.center {
+              text-align: center;
+            }
+            th {
+              border: $border;
+              padding: 0.25rem;
+              font-weight: 600;
+            }
+            td {
+              border: $border;
+              padding: 0.25rem;
+              &.region {
+                color: $text-primary;
+                font-weight: 600;
+                background: #eaeaea;
+                padding: 0.5rem 0.25rem;
+              }
+              &.product {
+                font-weight: 600;
+                background: #f7f7f7;
+                padding: 0.5rem 0.25rem;
+              }
+              &.channel {
+                font-weight: 600;
+                padding: 0.5rem 0.25rem;
+              }
+              small {
+                display: block;
+                &.positive {
+                  color: $text-success;
+                }
+                &.negative {
+                  color: $text-error;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.pagination {
+  @extend .wrapContainer;
+  text-align: center;
+  padding: 1.75rem 0;
+  ul {
+    border: 1px solid $text-primary;
+    list-style-type: none;
+    display: inline-flex;
+    border-radius: $radius;
+    margin: 0;
+    li {
+      border-right: 1px solid $text-primary;
+      padding: 0;
+      a {
+        display: block;
+        color: $text-primary;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        &:hover,
+        &.active {
+          background: $bg-primary;
+          color: #fff;
+        }
+      }
+      &:first-of-type a {
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+      }
+      &:last-of-type {
+        border: none;
+        a {
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+        }
+      }
+    }
+  }
+}

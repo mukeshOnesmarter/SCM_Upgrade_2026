@@ -1,0 +1,77 @@
+// DEMANDPLANNING CLOSURE
+.demandPlanningClosure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .regionContainer {
+    border-bottom: $border;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    > h4 {
+      border-bottom: $border;
+      margin-bottom: 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: $text-primary;
+      background: #fff;
+    }
+    .productContainer {
+      display: flex;
+      .product {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-right: $border;
+        &:last-of-type {
+          border-right: none;
+        }
+        > label {
+          background: #eaeaea;
+          border-bottom: $border;
+          padding: 0.25rem 0.75rem;
+          font-weight: 500;
+          small {
+            display: block;
+            font-weight: 400;
+          }
+        }
+        .demandChannels {
+          display: flex;
+          .channel {
+            flex: 1;
+            border-right: $border;
+            &:last-of-type {
+              border-right: none;
+            }
+            > label {
+              display: block;
+              font-weight: 500;
+              border-bottom: $border;
+              padding: 0.25rem 0.75rem;
+              background: #f6f6f6;
+              & + ul {
+                margin-bottom: 0;
+                li {
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  padding: 0.375rem 0.75rem;
+                  font-weight: 500;
+                  border-bottom: $border; 
+                  &:last-of-type {
+                    border-bottom: none;
+                  }
+                  span {
+                    margin-right: auto; 
+                    font-weight: 400; 
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

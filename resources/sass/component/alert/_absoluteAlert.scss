@@ -1,0 +1,24 @@
+.absoluteAlert {
+  width: auto;
+  display: inline-block;
+  padding: 0.25rem;
+  padding-right: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: none;
+  &.success {
+    background: $bg-success;
+  }
+  &.error {
+    background: $bg-error;
+  }
+  &.warning {
+    background: $bg-warning;
+  }
+}

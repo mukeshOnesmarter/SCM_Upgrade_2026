@@ -1,0 +1,15 @@
+.norecordFound {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 1rem;
+  border-radius: $radius;
+  background: #fff3cd;
+  padding: 0.75rem;
+  border: 1px solid #ffecb5;
+  color: #664d03;
+  font-size: 0.75rem;
+  .icon {
+    border-right: 1px solid #664d03;
+    padding-right: 1rem;
+  }
+}

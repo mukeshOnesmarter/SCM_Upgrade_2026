@@ -1,0 +1,51 @@
+// MANUFACTURING CLOSURE
+.manufacturingClosure {
+  position: relative;
+  display: flex;
+  .product {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    border-left: none;
+    &:last-of-type {
+      border-right: none;
+    }
+    .sectionHeader {
+      border-bottom: $border;
+      padding: 0.5rem 0.75rem;
+      background: #f0f0f0;
+      small {
+        display: block;
+        color: $text-primary;
+        & + label {
+          font-weight: 500;
+        }
+      }
+    }
+    ul {
+      position: relative;
+      list-style-type: none;
+      margin-bottom: 0;
+      li {
+        position: relative;
+        padding: 0.5rem 0.75rem;
+        border-bottom: $border;
+        &:last-of-type {
+          border-bottom: none;
+        }
+        label,
+        span {
+          display: block;
+        }
+        span {
+          padding-top: 0.25rem;
+          strong {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.dataTable {
+  @extend .wrapContainer;
+  background: #fff;
+  border-radius: $radius;
+  .tableRow {
+    @extend .wrapContainer;
+    display: grid;
+    grid-template-columns: 35px auto auto;
+    grid-template-rows: auto;
+    align-items: center;
+    border: $border;
+    border-bottom: none;
+    &:nth-of-type(odd) {
+      background: $bg-gray;
+    }
+    &.thead {
+      background: $bg-primary;
+      color: #fff;
+      font-weight: 400;
+      padding: 0.25rem 0;
+    }
+    &:last-of-type {
+      border-bottom-left-radius: $radius;
+      border-bottom-right-radius: $radius;
+      border-bottom: $border;
+    }
+    &:first-of-type {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+    .tableColumn {
+      padding: 0rem 1rem;
+      display: flex;
+      flex-direction: column; 
+      &.text-center {
+        text-align: center;
+      }
+      &.icon {
+        position: relative;
+        padding: 0;
+        text-align: center;
+        padding-left: 0.75rem;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &.title {
+        font-weight: 500;
+        padding: 0.25rem 1rem;
+        small {
+          color: $text-success;
+          font-weight: 400;
+          &.text-danger {
+            color: $text-error;
+          }
+        }
+      }
+      &.action {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        column-gap: 0.5rem;
+        align-items: center;
+        margin-left: auto;
+        a {
+          display: inline-block;
+          padding: 0.25rem;
+          &.delete_record {
+            color: #cc3300;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.screenAlert {
+  @extend .modalWindow;
+  .alertContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 3rem;
+  }
+  .alert {
+    background: $bg-gray;
+    border-radius: $radius;
+    padding: 1.25rem;
+    display: inline-flex;
+    column-gap: 0.5rem;
+    position: relative;
+    padding-left: 3rem;
+    &:before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: center;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+  &.success {
+    color: $text-success;
+    .alert:before {
+      background-image: url("/images/alert-icon/success.svg");
+    }
+  }
+  &.warning {
+    color: $text-warning;
+    .alert:before {
+      background-image: url("/images/alert-icon/warning.svg");
+    }
+  }
+  &.error {
+    color: $text-error;
+    .alert:before {
+      background-image: url("/images/alert-icon/error.svg");
+    }
+  }
+  &.show {
+    display: block;
+  }
+}

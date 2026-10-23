@@ -1,0 +1,19 @@
+// SERVICEMANAGEMENT CLOSURE
+.serviceManagementClosure {
+  position: relative;
+  .servicetype {
+    border-bottom: $border;
+    padding: 0.5rem 0.75rem;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    p {
+      margin-bottom: 0;
+      font-size: 0.75rem;
+      span {
+        font-weight: 500;
+        color: $text-primary;
+      }
+    }
+  }
+}

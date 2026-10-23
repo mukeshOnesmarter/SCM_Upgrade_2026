@@ -1,0 +1,1392 @@
+.coursesTemplate {
+  // COURSEOVERVIEW
+  .courseDetail {
+    display: flex;
+    flex-direction: column;
+    .pageTitle {
+      position: relative;
+      margin-bottom: 2rem;
+      h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        small {
+          display: block;
+          font-size: 0.875rem;
+          color: $text-primary;
+          padding-top: 2px;
+          font-weight: 400;
+        }
+        & + p {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // INVITE STUDENT
+    .inviteStudent {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+      justify-content: center;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      .avatar {
+        position: relative;
+        img {
+          max-width: 42px;
+        }
+      }
+      .sendInvite {
+        display: flex;
+        column-gap: 1rem;
+        font-size: 1rem;
+        .textInput {
+          border: $border;
+          input[type="text"] {
+            width: 300px;
+            padding: 0.75rem;
+            border: none;
+            &:focus {
+              border: none;
+            }
+          }
+        }
+        button,
+        a {
+          display: block;
+          font-size: 0.875rem;
+          font-weight: 500;
+          line-height: 1.5;
+          padding: 0.5rem 0.75rem;
+          background: $bg-primary;
+          color: #fff;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          transition: $transition;
+          &:hover {
+            background: $bg-secondary;
+          }
+        }
+      }
+      .externalButton {
+        display: inline-flex;
+        column-gap: 0.25rem;
+        font-weight: 400;
+        font-size: 0.75rem;
+        a {
+          display: block;
+          font-size: 0.875rem;
+          font-weight: 500;
+          padding: 0.625rem 0.75rem;
+          background: $bg-primary;
+          color: #fff;
+          transition: $transition;
+          &:hover {
+            background: $bg-secondary;
+          }
+        }
+      }
+    }
+
+    // studentInviteGroups
+    .studentInviteGroups {
+      display: flex;
+      column-gap: 1rem;
+      margin-bottom: 1rem;
+      .sectionTitle {
+        border-bottom: $border;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0;
+        h5 {
+          margin-bottom: 0rem;
+          & + p {
+            margin-bottom: 0;
+            font-size: 0.75rem;
+            span {
+              display: block;
+              color: $text-gray;
+              font-style: italic;
+            }
+          }
+        }
+      }
+      .bulkInvite,
+      .registrationLink {
+        display: flex;
+        flex-direction: column;
+        border: $border;
+        border-radius: $radius;
+        background: #f6f6f6;
+        .errorText {
+          position: relative;
+          border-bottom: $border;
+          padding: 0.25rem 1rem;
+          color: #721c24;
+          background-color: #f8d7da;
+          border-color: #f5c6cb;
+          strong {
+            font-weight: 500;
+            display: block;
+            & + p {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .inviteDataForm {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem;
+          height: 160px;
+          .uploadFile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            column-gap: 1.25rem;
+            .item {
+              position: relative;
+              label {
+                display: block;
+                margin-bottom: 0.25rem;
+                & + input {
+                  display: block;
+                  margin-bottom: 0.25rem;
+                  & + small {
+                    display: block;
+                    color: $text-gray;
+                  }
+                }
+              }
+              &.downloadFormat {
+                margin-left: auto;
+              }
+            }
+          }
+          .shareLink {
+            position: relative;
+            label {
+              display: block;
+              margin-bottom: 0.25rem;
+              & + textarea {
+                display: block;
+                font-family: inherit;
+                font-size: 0.75rem;
+                line-height: inherit;
+                border: $border;
+                background: #fff;
+                padding: 0.5rem;
+                width: 100%;
+                margin-bottom: 0.25rem;
+                resize: none;
+                & + small {
+                  display: block;
+                  color: $text-gray;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+          }
+          .uploadSubmit {
+            text-align: right;
+            margin-top: auto;
+            button {
+              display: inline-block;
+              font-size: 0.875rem;
+              font-weight: 500;
+              line-height: 1.5;
+              padding: 0.5rem 0.75rem;
+              background: $bg-primary;
+              color: #fff;
+              outline: none;
+              border: none;
+              cursor: pointer;
+              transition: $transition;
+              i.fa {
+                margin-right: 0.5rem;
+              }
+              &:hover {
+                background: $bg-secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // quickStatices
+    .quickStatices {
+      display: flex;
+      border: $border;
+      border-radius: $radius;
+      margin-bottom: 1rem;
+      .item {
+        flex: 1;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem;
+        border-right: $border;
+        &:last-of-type {
+          border-right: none;
+        }
+        label[for="title"] {
+          font-weight: 500;
+          padding-bottom: 0.25rem;
+          & + p {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            font-size: 0.75rem;
+            position: relative;
+            &:before {
+              content: "";
+              width: 32px;
+              height: 1px;
+              background: $bg-primary;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+            }
+            & + strong {
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    // aiAnalysisControl
+    .aiAnalysisControl {
+      display: flex;
+      flex-direction: column;
+      border: $border;
+      border-radius: $radius;
+      background: #f6f6f6;
+      margin-bottom: 1rem;
+      padding-left: 120px;
+      position: relative;
+      &:before {
+        content: "";
+        width: 120px;
+        height: 100%;
+        background: url("/images/ChatGPT-Logo.png") no-repeat center center;
+        background-size: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .sectionTitle {
+        border-bottom: $border;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0;
+        border-left: $border;
+        h5 {
+          margin-bottom: 0rem;
+          & + p {
+            margin-bottom: 0;
+            font-size: 0.75rem;
+            span {
+              display: block;
+              color: $text-gray;
+              font-style: italic;
+            }
+          }
+        }
+      }
+      .inviteDataForm {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.75rem;
+        padding: 1rem;
+        border-left: $border;
+        .item {
+          position: relative;
+          button,
+          a {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.5;
+            padding: 0.5rem 0.75rem;
+            background: $bg-primary;
+            color: #fff;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: $transition;
+            i.fa {
+              margin-right: 0.5rem;
+            }
+            &:hover {
+              background: $bg-secondary;
+            }
+          }
+        }
+      }
+    }
+
+    .switchPaymentMode {
+      display: flex;
+      flex-direction: column;
+      border: $border;
+      border-radius: $radius;
+      margin-bottom: 1rem;
+      border-color: #ffeeba;
+      > h6 {
+        border-bottom: $border;
+        padding: 0.75rem;
+        margin-bottom: 0;
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+      }
+      .description {
+        padding: 0.25rem;
+        padding: 0.75rem;
+        p {
+          margin-bottom: 0.5rem;
+          & + p {
+            color: $text-gray;
+            font-style: italic;
+            & + p {
+              color: $text-body;
+              font-style: normal;
+              & + a {
+                display: inline-block;
+                color: #fff3cd;
+                background-color: #856404;
+                border-color: #856404;
+                padding: 0.5rem 0.75rem;
+                border-radius: $radius;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // DEPLOYSIMULATION
+    .deploySimulation {
+      text-align: center;
+      padding-top: 2rem;
+    }
+
+    // firmManagement
+    .firmManagement {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #b9b9b9;
+      border-radius: $radius;
+      margin-top: 2rem;
+      background: #f2f2f7;
+      overflow: hidden;
+      .sectionTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        padding: 0.75rem 1rem 0rem;
+        label[for="heading"] {
+          font-weight: 500;
+          margin-bottom: 0.25rem;
+          & + p {
+            margin-bottom: 0.25rem;
+            text-align: center;
+          }
+        }
+      }
+      .firmManagementActions {
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        .firmCount {
+          font-weight: 500;
+          line-height: 1.5;
+          padding: 0.5rem 1.25rem;
+          background: #f6f6f6;
+          border: $border;
+        }
+        button {
+          display: inline-block;
+          font-size: 0.875rem;
+          font-weight: 500;
+          line-height: 1.5;
+          padding: 0.5rem 0.75rem;
+          background: $bg-primary;
+          color: #fff;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          transition: $transition;
+          i.fa {
+            margin-right: 0.5rem;
+          }
+          &:hover {
+            background: $bg-secondary;
+          }
+        }
+      }
+    }
+    // simulationTeamGroup
+    .simulationTeamGroup {
+      display: grid;
+      grid-template-columns: 230px auto;
+      border: 1px solid #b9b9b9;
+      border-radius: $radius;
+      margin-top: 2rem;
+      background: #f2f2f7;
+      overflow: hidden;
+      .widgetTitle {
+        border-bottom: $border;
+        padding: 1rem 1rem;
+        color: $text-primary;
+        font-weight: 500;
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        a {
+          display: inline-block;
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          img {
+            width: 36px;
+          }
+        }
+        & + p.note {
+          padding: 0.5rem 1rem 0.375rem;
+          border-bottom: $border;
+          margin-bottom: 0;
+          font-style: italic;
+          color: $text-gray;
+        }
+      }
+      // wrapGroups
+      .wrapGroups {
+        display: flex;
+        flex-direction: column;
+        border-right: $border;
+        .group {
+          position: relative;
+          padding: 0.5rem 1rem;
+          color: #8b8b8b;
+          transition: $transition;
+          &:before {
+            content: "";
+            width: 50px;
+            height: 5px;
+            border-bottom: $border-primary;
+            position: absolute;
+            left: 1rem;
+            bottom: 0;
+            transition: $transition;
+          }
+          &:last-of-type:before {
+            display: none;
+          }
+          label[for="title"] {
+            font-size: 1rem;
+            display: block;
+            font-weight: 500;
+            line-height: 1;
+            & + small {
+              display: block;
+              font-size: 0.875rem;
+              font-weight: 400;
+              padding-top: 0.25rem;
+              &.unassigned {
+                color: $text-primary;
+              }
+            }
+          }
+          &:hover,
+          &.active {
+            background: #e8e8e8;
+            cursor: pointer;
+            &:before {
+              width: 100px;
+            }
+            label[for="title"] {
+              color: $text-primary;
+            }
+          }
+        }
+      }
+      // STUDENTS
+      .studentWrap {
+        position: relative;
+        .studentGroup {
+          position: relative;
+          display: none;
+          height: 100%;
+          &.active {
+            display: flex;
+          }
+          .teamMembers {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+          }
+          .assignStudentToGroup {
+            flex: 1;
+            flex-direction: column;
+            border-left: $border;
+            background: #fff;
+          }
+          .studentsList {
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            .student {
+              display: flex;
+              column-gap: 1rem;
+              align-items: center;
+              border-bottom: $border;
+              padding: 0.25rem 1rem;
+              &:last-of-type {
+                border-bottom: none;
+              }
+              .item {
+                position: relative;
+                &.profilePicture {
+                  position: relative;
+                  img {
+                    width: 48px;
+                    border-radius: 100%;
+                  }
+                }
+                &.studentInfo {
+                  position: relative;
+                  label[for="heading"] {
+                    font-weight: 500;
+                    & + small {
+                      display: block;
+                      & + small {
+                        color: $text-primary;
+                      }
+                    }
+                  }
+                }
+                &.action {
+                  margin-left: auto;
+                  display: flex;
+                  align-items: center;
+                  column-gap: 1rem;
+                  button.assignGroup {
+                    display: inline-block;
+                    border-radius: 2rem;
+                    background: $bg-secondary;
+                    color: #fff;
+                    cursor: pointer;
+                    border: none;
+                    padding: 0.375rem 0.75rem;
+                    transition: $transition;
+                    font-size: 0.75rem;
+                    &:hover {
+                      background: $bg-primary;
+                    }
+                  }
+                  button.trash {
+                    cursor: pointer;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                    opacity: 0.5;
+                    transition: $transition;
+                    font-size: 1rem;
+                    color: $text-primary;
+                    &:hover {
+                      opacity: 1;
+                      color: $text-primary;
+                    }
+                  }
+
+                  a {
+                    display: inline-block;
+                    padding: 0.25rem;
+                    opacity: 0.5;
+                    transition: $transition;
+                    font-size: 1rem;
+                    color: $text-body;
+                    &.trash {
+                      color: $text-primary;
+                    }
+                    &:hover {
+                      opacity: 1;
+                      color: $text-primary;
+                    }
+                  }
+                }
+              }
+            }
+            .plusMore {
+              position: relative;
+              padding: 0.5rem;
+              padding-left: 5rem;
+              .count {
+                display: inline-block;
+                border: $border-success;
+                border-radius: 2rem;
+                padding: 0.25rem 0.75rem;
+                color: $text-success;
+                font-size: 0.75rem;
+                font-weight: 500;
+              }
+            }
+          }
+          .noRecords {
+            padding: 1rem;
+            h5 {
+              margin-bottom: 0.25rem;
+              font-size: 0.875rem;
+              font-weight: 500;
+              & + p {
+                display: block;
+                margin-bottom: 0.25rem;
+                & + small {
+                  font-style: italic;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // SIMULATION-WIDGETS
+    .simulationWidgets {
+      border: 1px solid #b9b9b9;
+      border-radius: $radius;
+      display: grid;
+      grid-template-columns: 230px auto 400px;
+      margin-top: 0rem;
+      background: #f2f2f7;
+      overflow: hidden;
+      .widget {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #b9b9b9;
+        &:last-of-type {
+          border-right: none;
+        }
+        .widgetTitle {
+          border-bottom: $border;
+          padding: 1rem 1rem;
+          color: $text-primary;
+          font-weight: 500;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          column-gap: 1rem;
+          position: relative;
+          a {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          a.mimic {
+            right: 7rem;
+            img {
+              width: 30px;
+            }
+          }
+          a.extendGroup {
+            right: 1rem;
+            img {
+              width: 36px;
+            }
+          }
+        }
+        // FACULTIES
+        .facultyWrap {
+          display: flex;
+          flex-direction: column;
+          .faculties {
+            display: flex;
+            flex-direction: column;
+            > p {
+              padding: 1rem;
+              font-style: italic;
+            }
+            .enrollmentStatus {
+              position: relative;
+              ul {
+                list-style-type: none;
+                margin-bottom: 0;
+                li {
+                  border-bottom: $border;
+                  padding: 0.375rem 1rem;
+                  strong {
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+            .faculty {
+              display: flex;
+              column-gap: 1rem;
+              align-items: center;
+              border-bottom: $border;
+              padding: 0.25rem 1rem;
+              &:last-of-type {
+                border-bottom: none;
+              }
+              .item {
+                position: relative;
+                &.profilePicture {
+                  position: relative;
+                  img {
+                    width: 48px;
+                    border-radius: 100%;
+                  }
+                }
+                &.facultyInfo {
+                  position: relative;
+                  label[for="heading"] {
+                    font-weight: 500;
+                    & + small {
+                      display: block;
+                      & + small {
+                        color: $text-primary;
+                      }
+                    }
+                  }
+                }
+                &.action {
+                  margin-left: auto;
+                  a {
+                    display: inline-block;
+                    padding: 0.5rem;
+                    opacity: 0.5;
+                    transition: $transition;
+                    font-size: 1rem;
+                    color: $text-body;
+                    &:hover {
+                      opacity: 1;
+                      color: $text-primary;
+                    }
+                  }
+                }
+              }
+            }
+            .plusMore {
+              position: relative;
+              padding: 0.5rem;
+              padding-left: 5rem;
+              .count {
+                display: inline-block;
+                border: $border-success;
+                border-radius: 2rem;
+                padding: 0.25rem 0.75rem;
+                color: $text-success;
+                font-size: 0.75rem;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+        // WRAPGROUPS
+        .wrapGroups {
+          display: flex;
+          flex-direction: column;
+          .group {
+            position: relative;
+            padding: 0.5rem 1rem;
+            color: #8b8b8b;
+            transition: $transition;
+            &:before {
+              content: "";
+              width: 50px;
+              height: 5px;
+              border-bottom: $border-primary;
+              position: absolute;
+              left: 1rem;
+              bottom: 0;
+              transition: $transition;
+            }
+            &:last-of-type:before {
+              display: none;
+            }
+            label[for="title"] {
+              font-size: 1rem;
+              display: block;
+              font-weight: 500;
+              line-height: 1;
+              & + small {
+                display: block;
+                font-size: 0.875rem;
+                font-weight: 400;
+                padding-top: 0.25rem;
+                &.unassigned {
+                  color: $text-primary;
+                }
+              }
+            }
+            &:hover,
+            &.active {
+              background: #e8e8e8;
+              cursor: pointer;
+              &:before {
+                width: 100px;
+              }
+              label[for="title"] {
+                color: $text-primary;
+              }
+            }
+          }
+        }
+        // STUDENTS
+        .studentWrap {
+          display: flex;
+          flex-direction: column;
+          .studentGroup {
+            position: relative;
+            display: none;
+            &.active {
+              display: flex;
+              flex-direction: column;
+            }
+            .studentsList {
+              display: flex;
+              flex-direction: column;
+              .student {
+                display: flex;
+                column-gap: 1rem;
+                align-items: center;
+                border-bottom: $border;
+                padding: 0.25rem 1rem;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                .item {
+                  position: relative;
+                  &.profilePicture {
+                    position: relative;
+                    img {
+                      width: 48px;
+                      border-radius: 100%;
+                    }
+                  }
+                  &.studentInfo {
+                    position: relative;
+                    label[for="heading"] {
+                      font-weight: 500;
+                      & + small {
+                        display: block;
+                        & + small {
+                          color: $text-primary;
+                        }
+                      }
+                    }
+                  }
+                  &.paymentstatus {
+                    width: 100px;
+                    margin-left: auto;
+                    small {
+                      position: relative;
+                      display: inline-block;
+                      color: $text-success;
+                      padding: 0.25rem 0rem;
+                      padding-left: 1.75rem;
+                      font-weight: 500;
+                      img {
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                      }
+                    }
+                  }
+                  &.action {
+                    display: flex;
+                    column-gap: 1rem;
+                    a {
+                      display: inline-block;
+                      padding: 0.25rem;
+                      opacity: 0.5;
+                      transition: $transition;
+                      font-size: 1rem;
+                      color: $text-body;
+                      &.trash {
+                        color: $text-primary;
+                      }
+                      &:hover {
+                        opacity: 1;
+                        color: $text-primary;
+                      }
+                    }
+                  }
+                }
+              }
+              .plusMore {
+                position: relative;
+                padding: 0.5rem;
+                padding-left: 5rem;
+                .count {
+                  display: inline-block;
+                  border: $border-success;
+                  border-radius: 2rem;
+                  padding: 0.25rem 0.75rem;
+                  color: $text-success;
+                  font-size: 0.75rem;
+                  font-weight: 500;
+                }
+              }
+            }
+            .noRecords {
+              padding: 1rem;
+              h5 {
+                margin-bottom: 0.25rem;
+                font-size: 0.875rem;
+                font-weight: 500;
+                & + p {
+                  display: block;
+                  margin-bottom: 0.25rem;
+                  & + small {
+                    font-style: italic;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // studentsDistribution
+    .studentsDistribution {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .moveInstruction {
+        display: flex;
+        align-items: center;
+        column-gap: 1.5rem;
+        border: $border-primary;
+        border-width: 2px;
+        border-radius: 2rem;
+        color: $text-primary;
+        padding: 0.25rem 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 3rem;
+        i.fa {
+          color: $text-body;
+        }
+      }
+      .groupsWrap {
+        width: 100%;
+        max-width: 1100px;
+        margin: 3rem 0 1rem;
+        .groupHeader {
+          display: flex;
+          margin-bottom: 0rem;
+          .item {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            column-gap: 0.5rem;
+            label[for="heading"] {
+              font-size: 0.875rem;
+              color: $text-primary;
+              text-align: left;
+              font-weight: 500;
+              small {
+                display: block;
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: $text-body;
+              }
+            }
+          }
+        }
+        .studentsWrap {
+          border: 1px solid #b9b9b9;
+          border-radius: $radius;
+          display: flex;
+          margin-top: 1rem;
+          background: #f2f2f7;
+          overflow: hidden;
+          .item {
+            flex-grow: 1;
+            border-right: $border;
+            display: flex;
+            flex-direction: column;
+            &:last-of-type {
+              border-right: none;
+            }
+            label[for="heading"] {
+              border-bottom: $border;
+              padding: 0.75rem;
+              text-align: center;
+              font-weight: 500;
+            }
+            .studentList {
+              display: flex;
+              flex-direction: column;
+              .student {
+                border-bottom: $border;
+                padding: 0.25rem 1rem;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                .stditem {
+                  position: relative;
+                  &.fixedLeft,
+                  &.fixedRight {
+                    display: flex;
+                    column-gap: 1.75rem;
+                    a {
+                      color: $text-body;
+                      opacity: 0.2;
+                      display: inline-block;
+                      padding: 0.25rem;
+                      font-size: 1rem;
+                      font-weight: 500;
+                      &.trash {
+                        color: $text-body;
+                        &:hover {
+                          color: $text-primary;
+                          opacity: 1;
+                        }
+                      }
+                      &.moveArrow {
+                        color: $text-body;
+                        &:hover {
+                          color: $text-success;
+                          opacity: 1;
+                        }
+                      }
+                    }
+                  }
+                }
+                &:hover {
+                  background: #f1f1f1;
+                  .stditem {
+                    position: relative;
+                    &.fixedLeft,
+                    &.fixedRight {
+                      position: relative;
+                      a {
+                        opacity: 0.5;
+                        &.trash {
+                          color: $text-primary;
+                        }
+                        &.moveArrow {
+                          color: $text-success;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // assigns
+    .assignGroup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .assignGroupContainer {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0rem 0 3rem;
+        display: flex;
+        flex-direction: column;
+        .sectionTitle {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          label[for="heading"] {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            & + p {
+              margin-bottom: 0.25rem;
+              text-align: center;
+            }
+          }
+          span {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            a {
+              display: inline-block;
+              padding: 0.25rem 1rem;
+              background: #fff;
+              border: $border-success;
+              color: $text-success;
+              border-radius: 2rem;
+              font-weight: 500;
+              &:hover {
+                background: $bg-success;
+                color: #fff;
+              }
+            }
+          }
+        }
+        .studentWrap {
+          border: $border;
+          border-radius: $radius;
+          padding: 0 1rem;
+          .student {
+            border-bottom: $border-primary;
+            padding: 0.5rem 0rem;
+            &:last-of-type {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+
+    // Decisions Open
+    .decisionArea {
+      padding: 0.5rem 0.25rem;
+      border-bottom: $border;
+      font-size: 0.75rem;
+      padding-left: 4rem;
+      background: #f6f6f6;
+      span {
+        font-weight: 500;
+      }
+    }
+
+    // SIMULATION-QUARTERS
+    .simulationQuarters {
+      border: 1px solid #b9b9b9;
+      border-radius: $radius;
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      overflow: hidden;
+      > h5 {
+        border-bottom: $border;
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 0;
+        small {
+          display: block;
+          color: $text-gray;
+          font-weight: 400;
+          padding-top: 2px;
+          font-size: 0.75rem;
+        }
+      }
+      .extendDuration {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem;
+        position: relative;
+        &:before {
+          content: "";
+          width: 3px;
+          height: 100%;
+          left: -2px;
+          top: 0;
+          position: absolute;
+          z-index: 100;
+          background: $bg-primary;
+        }
+        label {
+          font-weight: 500;
+          & + p {
+            margin-bottom: 0.25rem;
+            & + ul {
+              margin-bottom: 0.5rem;
+              list-style-type: none;
+              color: $text-gray;
+              font-size: 0.75rem;
+              font-style: italic;
+              & + p {
+                margin-bottom: 0.25rem;
+              }
+            }
+          }
+        }
+        .daysSelection {
+          display: flex;
+          column-gap: 0.75rem;
+          margin-bottom: 0.75rem;
+          label {
+            position: relative;
+            padding-left: 1rem;
+            input[type="radio"] {
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+          & + button {
+            border: none;
+            outline: none;
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: $bg-success;
+            color: #fff;
+            border-radius: 2rem;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+              background: darken($color: $bg-success, $amount: 2%);
+            }
+          }
+        }
+      }
+      .additionalQuarter {
+        padding: 0.75rem;
+        background: #fff;
+        text-align: right;
+        button {
+          border: none;
+          outline: none;
+          display: inline-block;
+          padding: 0.5rem 0.75rem;
+          background: $bg-success;
+          color: #fff;
+          border-radius: 2rem;
+          transition: $transition;
+          cursor: pointer;
+          i.fa {
+            margin-right: 0.25rem;
+          }
+          &:hover {
+            background: darken($color: $bg-success, $amount: 2%);
+          }
+        }
+      }
+      .quarter {
+        display: grid;
+        grid-template-columns: 50px 100px repeat(2, 100px) auto 50px;
+        align-items: center;
+        border-bottom: $border;
+        position: relative;
+        &.head {
+          background: #ececec;
+          font-weight: 500;
+        }
+        &:nth-of-type(odd) {
+          background: #f6f6f6;
+        }
+        &:last-of-type {
+          border: none;
+        }
+        .item {
+          padding: 0.375rem 0.75rem;
+          position: relative;
+          i.fa {
+            font-size: 0.875rem;
+          }
+          i.alphalight {
+            color: $text-gray;
+          }
+          &.label {
+            color: $text-primary;
+          }
+          &.autoLeft {
+            margin-left: auto;
+            a:hover {
+              text-decoration: underline;
+            }
+            small {
+              display: inline-block;
+              padding: 0.25rem 0.75rem;
+              border-radius: 2rem;
+              background: #f6f6f6;
+              border: 1px solid transparent;
+              &.closed {
+                color: #856404;
+                background-color: #fff3cd;
+                border-color: #ffeeba;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // ASSIGNGROUPPENDING
+    .assignGroupPending {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: $border;
+      border-radius: $radius;
+      overflow: hidden;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+      .assignStudentToGroup {
+        flex: 1;
+        flex-direction: column;
+        > h5 {
+          border-bottom: $border;
+          padding: 0.75rem;
+          font-size: 1rem;
+          margin-bottom: 0;
+          small {
+            display: block;
+            font-weight: 400;
+            padding-top: 2px;
+            font-size: 0.75rem;
+          }
+        }
+        .studentsList {
+          display: flex;
+          flex-direction: column;
+          overflow-y: scroll;
+          height: 237px;
+          .student {
+            display: flex;
+            column-gap: 1rem;
+            align-items: center;
+            border-bottom: $border;
+            padding: 0.25rem 1rem;
+            background: #fff;
+            &:nth-of-type(odd) {
+              background: #fff;
+            }
+            &:last-of-type {
+              border-bottom: none;
+            }
+            .item {
+              position: relative;
+              padding: 0;
+              &.studentInfo {
+                display: flex;
+                flex-direction: column;
+                small {
+                  display: block;
+                  color: $text-body;
+                }
+              }
+              &.assignGroup {
+                margin-left: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

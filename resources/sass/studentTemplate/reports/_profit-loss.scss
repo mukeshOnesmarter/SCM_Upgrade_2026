@@ -1,0 +1,708 @@
+#decisionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .overallExpenses {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    border-radius: $radius;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    .item {
+      border-bottom: $border;
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      &.total {
+        background: #f6f6f6;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $text-error;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      span {
+        margin-right: auto;
+      }
+    }
+  }
+
+  .section {
+    border: $border;
+    margin-bottom: 1.25rem;
+    border-radius: $radius;
+    overflow: hidden;
+    .sectionTitle {
+      position: relative;
+      background: #f7f7f7;
+      display: flex;
+      align-items: center;
+      .item {
+        position: relative;
+        margin-left: auto;
+        text-align: right;
+        small {
+          color: $text-primary;
+          display: block;
+          & + strong {
+            font-weight: 500;
+            font-size: 1.25rem;
+          }
+        }
+      }
+      h5 {
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        small {
+          display: block;
+          font-size: 0.75rem;
+          padding-top: 0.25rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    &#procurement {
+      display: flex;
+      flex-direction: column;
+      .regionContainer {
+        display: flex;
+        flex-direction: column;
+        .region {
+          border-bottom: $border;
+          &:last-of-type {
+            border-bottom: none;
+          }
+          .regionTitle {
+            padding: 0.375rem 0.75rem;
+            border-bottom: $border;
+            font-weight: 600;
+            font-size: 1rem;
+            color: $text-primary;
+          }
+          .procurementMaterial {
+            display: flex;
+            flex-direction: column;
+            .materialTitle {
+              padding: 0.25rem 0.75rem;
+              border-bottom: $border;
+              background: #f7f7f7;
+              display: flex;
+              align-items: center;
+              .item {
+                position: relative;
+                margin-left: auto;
+                text-align: right;
+                small {
+                  color: $text-primary;
+                  display: block;
+                  & + strong {
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                  }
+                }
+              }
+              h5 {
+                margin-bottom: 0;
+                font-size: 1rem;
+                font-weight: 500;
+                small {
+                  display: block;
+                  font-size: 0.75rem;
+                  padding-top: 0.25rem;
+                  font-weight: 400;
+                }
+              }
+            }
+            .procureRawMaterial {
+              border-bottom: $border;
+              display: flex;
+              .type {
+                flex: 1;
+                border-right: $border;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                &:last-of-type {
+                  border-right: none;
+                }
+                label {
+                  display: flex;
+                  border-bottom: $border;
+                  padding: 0.5rem 0.75rem;
+                  font-weight: 600;
+                  strong {
+                    margin-left: auto;
+                  }
+                }
+                .totalExpenses {
+                  position: relative;
+                  padding: 0.25rem 0.75rem;
+                  background: #f0f0f0;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  .item {
+                    position: relative;
+                    small {
+                      display: block;
+                    }
+                    &.price {
+                      color: $text-success;
+                      font-size: 1rem;
+                      font-weight: 600;
+                    }
+                  }
+                }
+              }
+            }
+            .procureSubAssemblies {
+              display: flex;
+              flex-direction: column;
+              .subAssembliesContainer {
+                display: flex;
+                .subAssemblies {
+                  flex: 1;
+                  position: relative;
+                  display: flex;
+                  flex-direction: column;
+                  border-right: $border;
+                  &:nth-of-type(even) {
+                    background: #f7f7f7;
+                  }
+                  &:last-of-type {
+                    border-right: none;
+                  }
+                  .title {
+                    display: flex;
+                    border-bottom: $border;
+                    padding: 0.5rem 0.75rem;
+                    column-gap: 0.25rem;
+                    background: #f7f7f7;
+                    font-weight: 600;
+                    strong {
+                      margin-left: auto;
+                    }
+                  }
+                  .supplierContainer {
+                    display: flex;
+                    flex-direction: column;
+                    .supplier {
+                      border-bottom: $border;
+                      display: flex;
+                      flex-direction: column;
+                      &:last-of-type {
+                        border-bottom: none;
+                      }
+                      label[for="heading"] {
+                        font-weight: 500;
+                        padding: 0.25rem 0.75rem;
+                        small {
+                          display: block;
+                          font-weight: 400;
+                          color: $text-primary;
+                        }
+                      }
+                      .supplyChannel {
+                        display: flex;
+                        border-top: $border;
+                        .channel {
+                          text-align: center;
+                          flex: 1;
+                          border-right: $border;
+                          padding: 0.25rem;
+                          &:last-of-type {
+                            border-right: none;
+                          }
+                          label[for="heading"] {
+                            font-weight: 500;
+                            padding: 0.25rem 0.75rem;
+                            & + strong {
+                              display: block;
+                            }
+                          }
+                        }
+                      }
+                      .totalExpenses {
+                        position: relative;
+                        border-top: $border;
+                        padding: 0.25rem 0.75rem;
+                        background: #f0f0f0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .item {
+                          position: relative;
+                          small {
+                            display: block;
+                          }
+                          &.price {
+                            color: $text-success;
+                            font-size: 1rem;
+                            font-weight: 600;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &#distribution {
+      display: flex;
+      flex-direction: column;
+      .distributionCenterContainer {
+        display: flex;
+        .distributionCenter {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          border-right: $border;
+          &:last-of-type {
+            border-right: none;
+          }
+          .headerTitle {
+            display: flex;
+            flex-direction: column;
+            border-bottom: $border;
+            padding: 0.25rem 0.75rem;
+            small {
+              color: $text-primary;
+            }
+            label {
+              padding-top: 0.25rem;
+              font-weight: 500;
+              span {
+                font-weight: 500;
+              }
+            }
+            & + p {
+              font-weight: 600;
+              padding: 0.25rem 0.75rem;
+              background: #f0f0f0;
+              margin-bottom: 0;
+              small {
+                display: block;
+                font-weight: 400;
+              }
+            }
+          }
+          .costing {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-top: $border;
+            .item {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              padding: 0.25rem 0.75rem;
+              border-bottom: $border;
+              font-weight: 600;
+              &:last-of-type {
+                border-bottom: none;
+              }
+              span {
+                font-size: 0.875rem;
+                margin-right: auto;
+                font-weight: 400;
+                small {
+                  display: block;
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+          .rfidApplication {
+            border-top: $border;
+            .headerSection {
+              border-bottom: $border;
+              padding: 0.25rem 0.75rem;
+              background: #f0f0f0;
+              label {
+                display: block;
+                font-weight: 600;
+                & + small {
+                  display: block;
+                  font-weight: 400;
+                }
+              }
+              & + ul {
+                list-style-type: none;
+                margin-bottom: 0;
+                li {
+                  position: relative;
+                  padding: 0.25rem 0.75rem;
+                  border-bottom: $border;
+                  font-weight: 500;
+                  display: flex;
+                  &:last-of-type {
+                    border-bottom: none;
+                  }
+                  strong {
+                    margin-left: auto;
+                  }
+                }
+              }
+            }
+          }
+
+          .cross_docking {
+            display: flex;
+            flex-direction: column;
+            border-top: $border;
+            label[for="heading"] {
+              padding: 0.25rem 0.75rem;
+              background: #f0f0f0;
+              border-bottom: $border;
+              font-weight: 600;
+              small {
+                display: block;
+                font-weight: 400;
+              }
+              & + p {
+                padding: 0.25rem 0.75rem;
+                margin-bottom: 0;
+                border-bottom: $border;
+                display: flex;
+                strong {
+                  margin-right: auto;
+                  font-weight: 500;
+                }
+              }
+            }
+            ul {
+              list-style-type: none;
+              margin-bottom: 0;
+              li {
+                padding: 0.25rem 0.75rem;
+                border-bottom: $border;
+                display: flex;
+                align-items: center;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                span {
+                  font-weight: 500;
+                  small {
+                    display: block;
+                    font-weight: 400;
+                  }
+                  & + strong {
+                    font-weight: 600;
+                    margin-left: auto;
+                  }
+                }
+              }
+            }
+          }
+
+          .totalCalculation {
+            margin-top: auto;
+            padding: 0.75rem 0.75rem;
+            background: #f0f0f0;
+            border-top: $border;
+            span {
+              display: block;
+              & + small {
+                display: block;
+                & + strong {
+                  font-weight: 600;
+                  font-size: 1rem;
+                  color: $text-success;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &#manufacturing {
+      display: flex;
+      flex-direction: column;
+      .productContainer {
+        display: flex;
+        .productManufacturing {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          border-right: $border;
+          &:last-of-type {
+            border-right: none;
+          }
+          .productTitle {
+            position: relative;
+            border-bottom: $border;
+            padding: 0.375rem 0.75rem;
+            font-weight: 500;
+            small {
+              display: block;
+              color: $text-primary;
+              font-weight: 400;
+            }
+          }
+          .productionUnits {
+            position: relative;
+            padding: 0.375rem 0.75rem;
+            ul {
+              list-style-type: none;
+              margin-bottom: 0;
+              li {
+                position: relative;
+                padding: 0.125rem 0;
+                display: flex;
+                strong {
+                  margin-left: auto;
+                }
+              }
+            }
+          }
+          .costing {
+            border-top: $border;
+            border-bottom: $border;
+            position: relative;
+            background: #f6f6f6;
+            > label[for="heading"] {
+              display: block;
+              border-bottom: $border;
+              padding: 0.375rem 0.75rem;
+              font-weight: 500;
+              background: #f0f0f0;
+            }
+            ul {
+              list-style-type: none;
+              margin-bottom: 0;
+              li {
+                position: relative;
+                padding: 0.125rem 0.75rem;
+                display: flex;
+                border-bottom: $border;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                label {
+                  font-weight: 500;
+                  small {
+                    display: block;
+                    font-weight: 400;
+                  }
+                }
+                strong {
+                  margin-left: auto;
+                }
+              }
+            }
+          }
+          .expenses {
+            position: relative;
+            > label[for="heading"] {
+              display: block;
+              border-bottom: $border;
+              padding: 0.375rem 0.75rem;
+              font-weight: 500;
+              background: #f0f0f0;
+            }
+            .totalCalculation {
+              padding: 0.75rem 0.75rem;
+
+              background: #f0f0f0;
+              border-top: $border;
+              span {
+                display: block;
+                & + small {
+                  display: block;
+                  & + strong {
+                    font-weight: 600;
+                    font-size: 1rem;
+                    color: $text-success;
+                  }
+                }
+              }
+            }
+            ul {
+              list-style-type: none;
+              li {
+                position: relative;
+                padding: 0.25rem 0.5rem;
+                border-bottom: $border;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                span {
+                  font-weight: 500;
+                  small {
+                    display: block;
+                    font-weight: 400;
+                  }
+                  & + strong {
+                    display: block;
+                    font-size: 1rem;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &#transportation {
+      display: flex;
+      flex-direction: column;
+      .distributionCenter {
+        display: flex;
+        flex-direction: column;
+        .dcCenterTitle {
+          display: flex;
+          border-bottom: $border;
+          padding: 0.5rem 0.75rem;
+          .item {
+            position: relative;
+            small {
+              display: block;
+              & + label,
+              & + strong {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 500;
+              }
+            }
+            &.expenses {
+              margin-left: auto;
+            }
+          }
+        }
+        .productContainer {
+          display: flex;
+          .product {
+            flex: 1;
+            border-right: $border;
+            &:last-of-type {
+              border-right: none;
+            }
+            .productTitle {
+              position: relative;
+              border-bottom: $border;
+              padding: 0.25rem 0.75rem;
+              display: flex;
+              flex-direction: column;
+              small {
+                color: $text-primary;
+                & + label {
+                  font-weight: 400;
+                  & + strong {
+                    display: block;
+                    font-weight: 500;
+                    font-size: 1rem;
+                  }
+                }
+              }
+            }
+            .carrierContainer {
+              display: flex;
+              flex-direction: column;
+              border-bottom: $border;
+              &:last-of-type {
+                border-bottom: none;
+              }
+              .carrierTitle {
+                text-align: center;
+                background: #f6f6f6;
+                border-bottom: $border;
+                padding: 0.375rem 0;
+                font-weight: 500;
+                small {
+                  display: block;
+                  font-weight: 400;
+                }
+              }
+              .supplyChannel {
+                display: flex;
+                .channel {
+                  flex: 1;
+                  position: relative;
+                  display: flex;
+                  flex-direction: column;
+                  border-right: $border;
+                  &:last-of-type {
+                    border-right: none;
+                  }
+                  label {
+                    border-bottom: $border;
+                    padding: 0.375rem 0;
+                    font-weight: 500;
+                    text-align: center;
+                    & + ul {
+                      margin-bottom: 0;
+                      list-style-type: none;
+                      li {
+                        position: relative;
+                        border-bottom: $border;
+                        padding: 0.25rem 0.5rem;
+                        display: flex;
+                        font-weight: 500;
+                        span {
+                          margin-right: auto;
+                          font-weight: 400;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &#serviceManagement {
+      display: flex;
+      flex-direction: column;
+      .serviceManagement {
+        display: flex;
+        .regionContainer {
+          flex: 1;
+          border-right: $border;
+          display: flex;
+          flex-direction: column;
+          &:last-of-type {
+            border-right: none;
+          }
+          label {
+            text-align: center;
+            border-bottom: $border;
+            padding: 0.375rem 0;
+            font-weight: 500;
+            color: $text-primary;
+            & + ul {
+              margin-bottom: 0;
+              li {
+                position: relative;
+                display: flex;
+                border-bottom: $border;
+                padding: 0.375rem 0.75rem;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                span {
+                  margin-right: auto;
+                  font-weight: 400;
+                  & + strong {
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

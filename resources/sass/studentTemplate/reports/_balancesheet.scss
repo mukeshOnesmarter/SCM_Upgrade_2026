@@ -1,0 +1,33 @@
+.balanceSheetReport {
+  display: flex;
+  flex-direction: column; 
+  .tableDataContainer {
+    display: flex;
+    flex-direction: column;
+    table.tableData {
+      width: 100%;
+      margin-bottom: 0;
+      border: $border;
+      margin-bottom: 1rem;
+      tr {
+        position: relative;
+        th, td {
+          border-bottom: $border;
+          padding: 0.25rem; 
+        } 
+      }
+      thead {
+        background: #f6f6f6;
+        padding: 0.5rem 0.25rem;
+        font-weight: 500;
+      }
+       
+      & + h5 {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,372 @@
+// COURSEHEADER
+%courseOverview {
+  border-bottom: $border;
+  border-width: 2px;
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  .courseInfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    position: relative;
+    &:before {
+      content: "";
+      width: 140px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      z-index: 200;
+      background: $bg-primary;
+    }
+    &:after {
+      content: "";
+      width: 170px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      z-index: 100;
+      background: #fff;
+    }
+    .item {
+      position: relative;
+      span {
+        display: inline-block;
+        &.text-gray {
+          color: $text-gray;
+        }
+        &.lable {
+          position: relative;
+          padding-right: 1rem;
+          margin-right: 0.5rem;
+          padding-left: 1.5rem;
+          &:before {
+            content: "";
+            width: 2px;
+            height: 60%;
+            background: $bg-gray;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &:after {
+            content: "";
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            border: 2px solid $clr-primary;
+            background: #f6f6f6;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+    h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0rem;
+    }
+  }
+  .shareCode {
+    text-align: center;
+    strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1.75rem;
+    }
+    small {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.coursesTemplate {
+  @extend .wrapContainer;
+  .simulationHeader {
+    @extend .wrapContainer;
+    padding: 1rem 2rem;
+    .courseOverview {
+      @extend %courseOverview;
+    }
+  }
+
+  .performanceOverview {
+    display: grid;
+    grid-template-columns: 120px auto;
+    border: $border;
+    border-radius: $radius;
+    margin-bottom: 1rem;
+    .item {
+      position: relative;
+      padding: 0.5rem 0.75rem;
+      h6 {
+        margin-bottom: 0.5rem;
+        small {
+          display: block;
+          padding-top: 0.25rem;
+          color: $text-gray;
+          font-style: italic;
+          font-weight: 400;
+        }
+        & + p {
+          margin-bottom: 0.25rem;
+        }
+      }
+      &:nth-of-type(1) {
+        text-align: center;
+        border-right: $border;
+        position: relative;
+        img {
+          max-width: 90px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  .metricsOverview {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: $radius;
+    border: $border;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    .quarterSelection {
+      position: relative;
+      border-bottom: $border;
+      background: #f6f6f6;
+      ul {
+        list-style-type: none;
+        display: flex;
+        margin-bottom: 0;
+        li {
+          border-right: $border;
+          text-align: center;
+          span {
+            display: block;
+            height: 100%;
+            padding: 0.75rem 1rem;
+            small {
+              display: block;
+              color: $text-success;
+            }
+            &.disabled-quarter {
+              color: $text-gray;
+              small {
+                color: $text-gray;
+              }
+            }
+          }
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+    }
+    .grpahic {
+      position: relative;
+    }
+  }
+
+  // Firm Performances
+  .firmPerformances {
+    position: relative;
+    .performancesTable {
+      position: relative;
+      > h4 {
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+      > table {
+        width: 100%;
+        border-collapse: collapse;
+        tr {
+          position: relative;
+          th {
+            font-weight: 600;
+          }
+          td,
+          th {
+            border: $border;
+            border-collapse: collapse;
+            padding: 0.25rem 0.75rem;
+            text-align: right;
+            &:first-of-type {
+              text-align: left;
+            }
+            &.fw-bold {
+              font-weight: 700;
+              color: $text-success;
+              text-decoration: underline;
+            }
+          }
+          &:last-of-type td {
+            border: none;
+          }
+          &.winner {
+            background: #f6f6f6;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .sectionContainer {
+    @extend .wrapContainer;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 2rem;
+    // SECTIONTITLE
+    .sectionTitle {
+      position: relative;
+      margin-bottom: 1rem;
+      h4 {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        & + p {
+          margin-bottom: 0.5rem;
+          & + a {
+            display: inline-block;
+            border-radius: 2rem;
+            background: $bg-primary;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            i.fa {
+              margin-right: 0.25rem;
+            }
+          }
+        }
+      }
+    }
+    // LISTING
+    .dataListing {
+      display: flex;
+      flex-direction: column;
+      border: $border;
+      border-radius: $radius;
+      margin-bottom: 1rem;
+      .listingRow {
+        display: flex;
+        align-items: center;
+        column-gap: 0.25rem;
+        border-bottom: $border;
+        &:last-of-type {
+          border-bottom: none;
+        }
+        .item {
+          padding: 0.25rem 0.5rem;
+          display: flex;
+          flex-direction: column;
+          &.title {
+            position: relative;
+            label[for="heading"] {
+              font-weight: 500;
+            }
+          }
+          &.action {
+            margin-left: auto;
+            padding-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .addStudent {
+    display: flex;
+    flex-direction: column;
+    border-radius: $radius;
+    border: $border;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    .templateCrud {
+      position: relative;
+      padding: 1.25rem;
+      h5 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        position: relative;
+        & + p {
+          position: relative;
+          margin-bottom: 0.75rem;
+          padding-bottom: 0.75rem;
+          &:before {
+            content: "";
+            width: 140px;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 200;
+            background: $bg-primary;
+          }
+          & + .dataForm {
+            padding: 0;
+          }
+        }
+      }
+      &:first-of-type {
+        background: #f6f6f6;
+        border-bottom: $border;
+      }
+    }
+  }
+
+  .simulationSync {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000;
+    background: transparentize(#fff, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .message {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      > h3 {
+        margin-bottom: 0.25rem;
+        color: $text-primary;
+        margin-top: 1rem;
+        & + p {
+          margin-bottom: 0.25rem;
+          & + p {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        mask: linear-gradient(0deg, #000 55%, #0000 0) bottom/100% 18.18%;
+        background: linear-gradient(#f03355 0 0) bottom/100% 0% no-repeat #ddd;
+        animation: l8 2s infinite steps(7);
+      }
+      @keyframes l8 {
+        100% {
+          background-size: 100% 115%;
+        }
+      }
+    }
+  }
+}

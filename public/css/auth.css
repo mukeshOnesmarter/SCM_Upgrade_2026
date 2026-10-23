@@ -1,0 +1,660 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap);
+.wrapContainer, .forgetPassword, .authentication .waitingContainer .contentWrapper, .authentication .waitingContainer, .authentication {
+  width: 100%;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+}
+
+.modalWindow, .process, #pageLoader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #ed1c24;
+  transition: all ease 0.4s;
+  color: #fff;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.button i.fa {
+  margin-right: 0.25rem;
+}
+
+.success {
+  color: darkgreen !important;
+}
+
+.danger {
+  color: red !important;
+}
+
+.text-primary {
+  color: #ed1c24 !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-synthesis: antialiased;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  background: #fff;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+h1 small, h2 small, h3 small,
+.h1 small, .h2 small, .h3 small {
+  font-weight: normal;
+  font-size: 75%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+ol ol, ul ul, ol ul, ul ol {
+  margin-bottom: 1rem;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: #ed1c24;
+  text-decoration: none;
+  transition: all ease 0.4s;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: #b7c1c4;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+small {
+  font-size: 85%;
+}
+
+#pageLoader {
+  display: block;
+}
+
+.sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #fff;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot {
+  80%, 100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%, 0% {
+    transform: scale(1);
+  }
+}
+.process .processContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.process .processContainer .cv-spinner {
+  display: flex;
+  justify-content: center;
+}
+.process .processContainer .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px #ddd solid;
+  border-top: 4px solid #ed1c24;
+  border-radius: 50%;
+  animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.process .processContainer .is-hide {
+  display: none;
+}
+
+.authentication {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
+.authentication .logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 8%;
+  z-index: 1000;
+}
+.authentication .waitingContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  background: rgba(255, 255, 255, 0.7);
+  display: none;
+}
+.authentication .waitingContainer .contentWrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+.authentication .alertMessage {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  color: #000000;
+  z-index: 200;
+  display: none;
+  color: #cc3300;
+}
+.authentication .authContainer {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.authentication .authContainer .loginForm {
+  background: #fff;
+  padding: 1.25rem;
+  border: 1px solid #dddcdb;
+  border-radius: 0.5rem;
+  text-align: left;
+}
+.authentication .authContainer .loginForm h5 {
+  padding-left: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.authentication .authContainer .loginForm .inputComponent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] {
+  padding: 0 0 0.5rem 0.75rem;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField {
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 30px;
+  padding: 0.5rem 0.75rem;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=email],
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=password],
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=text] {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: inherit;
+  display: block;
+  padding: 0;
+  border: 1px solid #fff;
+  outline: none;
+  background: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-shadow: none;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=email]:focus,
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=password]:focus,
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=text]:focus {
+  outline: none;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon {
+  color: #404565;
+  position: relative;
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon:before {
+  content: "";
+  width: 1px;
+  height: 80%;
+  background: #b9b9b9;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon a,
+.authentication .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon i.fa {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #404565;
+}
+.authentication .authContainer .loginForm .inputComponent.action_button {
+  padding: 0 0.75rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.authentication .authContainer .loginForm .inputComponent.action_button button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.authentication .authContainer .loginForm .inputComponent.action_button a {
+  color: #ed1c24;
+}
+.authentication .authContainer .loginForm .inputComponent.action_button a:hover {
+  color: #404565;
+}
+
+.loginSuccessfully {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+.loginSuccessfully .alertContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 3rem;
+}
+.loginSuccessfully .alertContainer .success {
+  background: #339900;
+  color: #fff !important;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  position: relative;
+  display: flex;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  align-items: flex-start;
+}
+.loginSuccessfully .alertContainer .success span small {
+  display: block;
+}
+
+.forgetPassword {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
+.forgetPassword .authContainer {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.forgetPassword .authContainer .loginForm {
+  background: #fff;
+  padding: 1.25rem;
+  border: 1px solid #dddcdb;
+  border-radius: 0.5rem;
+  text-align: left;
+}
+.forgetPassword .authContainer .loginForm h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.forgetPassword .authContainer .loginForm h5 + p {
+  margin-bottom: 1rem;
+}
+.forgetPassword .authContainer .loginForm h5 + p small {
+  display: block;
+  color: #a3a3a3;
+}
+.forgetPassword .authContainer .loginForm .inputComponent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] {
+  padding-bottom: 0.5rem;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField {
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 30px;
+  padding: 0.5rem 0.75rem;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=email] {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: inherit;
+  display: block;
+  padding: 0;
+  border: 1px solid #fff;
+  outline: none;
+  background: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-shadow: none;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField input[type=email]:focus {
+  outline: none;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon {
+  color: #404565;
+  position: relative;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon:before {
+  content: "";
+  width: 1px;
+  height: 80%;
+  background: #b9b9b9;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon a,
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField .icon i.fa {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #404565;
+}
+.forgetPassword .authContainer .loginForm .inputComponent label[for=title] + div.inputField + small.error_text {
+  display: block;
+  padding-top: 0.5rem;
+  color: #cc3300;
+}
+.forgetPassword .authContainer .loginForm .inputComponent.action_button {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.forgetPassword .authContainer .loginForm .inputComponent.action_button button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.forgetPassword .authContainer .loginForm .inputComponent.action_button a {
+  color: #ed1c24;
+}
+.forgetPassword .authContainer .loginForm .inputComponent.action_button a:hover {
+  color: #404565;
+}
+.forgetPassword .revertSuccess {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  text-align: left;
+}
+.forgetPassword .revertSuccess h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.forgetPassword .revertSuccess h5 + p {
+  margin-bottom: 1rem;
+}
+.forgetPassword .revertSuccess h5 + p small {
+  display: block;
+  color: #a3a3a3;
+}
+.forgetPassword .revertSuccess h5 + p + a {
+  display: inline-block;
+  color: #ed1c24;
+}

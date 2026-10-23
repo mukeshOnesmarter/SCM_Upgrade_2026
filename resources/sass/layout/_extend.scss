@@ -1,0 +1,36 @@
+.wrapContainer {
+  width: 100%;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+} 
+
+.modalWindow {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: transparentize(#000, 0.5);
+  display: none;
+}
+
+.button {
+  @include button;
+}
+
+// ALERT CLASSESS
+.success {
+  color: darkgreen!important;
+}
+.danger {
+  color: red!important;
+}
+.text-primary {
+  color: $text-primary!important;
+} 

@@ -1,0 +1,114 @@
+.studentProfileTemplate {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  .studentBio {
+    position: relative;
+    margin-bottom: 1rem;
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+      small {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 400;
+        padding-top: 2px;
+      }
+    }
+  }
+  .demographics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    ul {
+      margin-bottom: 0;
+    }
+    .mimicProfile {
+      position: relative;
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+          max-width: 50px;
+        }
+      }
+    }
+  }
+  .actionContainer {
+    border-radius: $radius;
+    border: $border;
+    .section {
+      padding: 0.75rem;
+      border-bottom: $border;
+      &.joiningPending {
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        p {
+          margin-bottom: 0;
+        }
+      }
+      &.paymentPending {
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        p {
+          margin-bottom: 1rem;
+          small {
+            display: block;
+          }
+        }
+      }
+      &.paymentSuccessful {
+        color: #155724;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        h5 {
+          color: #155724;
+          & + p {
+            margin-bottom: 0.25rem;
+            & + ul {
+              list-style-type: none;
+              margin-bottom: 0rem;
+              li {
+                position: relative;
+                strong {
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      h5 {
+        margin-bottom: 0rem;
+        font-size: 1rem;
+        color: $text-primary;
+        i.fa {
+          margin-right: 0.25rem;
+        }
+        & + p {
+          margin-bottom: 0.75rem;
+        }
+      }
+      button {
+        display: inline-block;
+        background: $bg-secondary;
+        color: #fff;
+        padding: 0.25rem 0.75rem;
+        border-radius: 2rem;
+        outline: none;
+        border: none;
+        transition: $transition;
+        &:hover {
+          background: $bg-primary;
+        }
+      }
+    }
+  }
+}

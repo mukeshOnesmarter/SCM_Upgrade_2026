@@ -1,0 +1,156 @@
+.finishedGoods {
+  display: flex;
+  flex-direction: column;
+  border: $border;
+  border-radius: $radius;
+  overflow: hidden;
+  .headerContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 200px); 
+    justify-content: flex-end;
+    text-align: right;
+    .item {
+      padding: 0.5rem 0.75rem;
+      border-right: $border;
+      small {
+        display: block;
+      }
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+  } 
+
+  .distributionCenter {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-top: $border;
+    &:first-of-type {
+      border-top: none;
+    }
+    .regionTitle {
+      padding: 0.375rem 0.75rem;
+      border-bottom: $border;
+      font-weight: 600;
+      font-size: 1rem;
+      color: $text-primary;
+      small {
+        display: block;
+        font-weight: 400;
+        color: $text-gray;
+      }
+    }
+    .labelValueGroup {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; 
+    }
+    .labelValue {
+      border-bottom: $border;
+      display: grid;
+      grid-template-columns: 220px auto;
+      background: #fff;
+      &.highlight {
+        background: #f7f7f7;
+        text-transform: uppercase;
+        color: $text-success;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      label {
+        font-weight: 600;
+        background: #f6f6f6;
+        border-right: $border;
+        padding: 0.375rem 0.75rem;
+        span {
+          width: 15px;
+          display: inline-block;
+          font-weight: 400;
+          font-size: 0.75rem;
+          &.addition {
+            color: $text-success;
+          }
+          &.subtraction {
+            color: $text-error;
+          }
+          &.hide {
+            visibility: hidden;
+          }
+        }
+      }
+      .inventoryContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        justify-content: flex-end;
+        .item {
+          text-align: right;
+          padding: 0.375rem 0.75rem;
+          border-right: $border;
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+      &.endingInventory {
+        background: #f7f7f7;
+        font-weight: 600;
+      }
+    }
+
+    .shipmentContainer {
+      display: flex;
+      flex-direction: column;
+      background: #f6f6f6;
+      > label[for="title"] {
+        font-weight: 600;
+        background: #f6f6f6; 
+        padding: 0.375rem 0.75rem;
+        span {
+          width: 15px;
+          display: inline-block;
+          font-weight: 400;
+          font-size: 0.75rem; 
+          &.addition {
+            color: $text-success;
+          }
+          &.subtraction {
+            color: $text-error;
+          }
+        }
+      }
+      .shipmentInventryContainer {
+        display: flex;
+        flex-direction: column;
+        border-bottom: $border;
+        border-color: #fff;
+        background: #eaeaea;
+        .shipment {
+          display: grid;
+          grid-template-columns: 199px auto; 
+          align-items: center; 
+          border-top: $border;
+          border-color: #fff;
+          label {
+            padding: 0 0.75rem;
+            padding-left: 1.75rem; 
+            justify-self: start; 
+          }
+          .shipmentInventry {
+            display: grid;
+            grid-template-columns: repeat(3, 200px); 
+            justify-content: flex-end;
+            .item { 
+              position: relative;
+              text-align: right; 
+              border-left: $border;
+              border-color: #fff;
+              padding: 0.25rem 0.75rem; 
+            }
+          } 
+        }
+      }
+    }
+  }
+}

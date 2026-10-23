@@ -1,0 +1,157 @@
+.coursePayment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  > h4 {
+    font-size: 1.25rem;
+    color: $text-success;
+  }
+  .summaryContainer {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+    margin-bottom: 1rem;
+    border-radius: $radius;
+    overflow: hidden;
+    p:last-of-type {
+      margin-bottom: 0rem;
+      font-style: italic;
+    }
+    > h5 {
+      border-bottom: $border;
+      padding: 0.5rem;
+      font-size: 1rem;
+      color: $text-primary;
+      margin-bottom: 0;
+      small {
+        display: block;
+        font-size: 0.875rem;
+        color: $text-body;
+        padding-top: 0.25rem;
+        font-weight: 400;
+      }
+      & + .infoContainer {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        &.resetPadding {
+          padding: 0 !important;
+        }
+        .paymentoption {
+          position: relative;
+          background: #f6f6f6;
+          border-bottom: $border;
+          padding: 0.75rem;
+          &:nth-of-type(odd) {
+            background: #ffffff;
+          }
+          &:last-of-type {
+            border-bottom: none;
+          }
+          a {
+            display: inline-block;
+            background: $bg-success;
+            color: #fff;
+            padding: 0.375rem 1rem;
+            border-radius: 2rem;
+          }
+          h6 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            & + p {
+              margin-bottom: 0.75rem;
+              & + ul {
+                list-style-type: none;
+                margin-bottom: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // PROCESSPAYMENT
+  .checkOut { 
+    padding: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .securePayment {
+      position: relative;
+      margin-bottom: 1rem;
+       > img {
+        max-width: 300px; 
+      }
+    }
+    .processPayment {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      .dataRow {
+        position: relative;
+        display: flex;
+        grid-column-gap: 1.25rem;
+        flex-wrap: wrap;
+        .inputField {
+          position: relative;
+          flex: 1 1 0;
+          display: flex;
+          flex-direction: column;
+          grid-row-gap: 0.25rem;
+          margin-bottom: 1rem;
+          label {
+            font-weight: 400;
+            color: $text-body;
+            i.fa {
+              margin-right: 0.25rem;
+            }
+          }
+          small.help_text {
+            font-size: 0.75rem;
+            color: $text-help;
+          }
+          small.error_text {
+            font-size: 0.75rem;
+            color: $text-error;
+          }
+          input[type="text"] {
+            @include inputText;
+            &:focus {
+              outline: none;
+            }
+            &:disabled {
+              background: #f6f6f6;
+              cursor: not-allowed;
+            }
+            &:read-only {
+              cursor: not-allowed;
+              background: #f6f6f6;
+            }
+          }
+          &.amount {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+        }
+        &.action_button {
+          position: relative;
+          justify-content: space-between;
+          align-items: center;
+          p {
+            color: $text-gray;
+            margin-bottom: 0;
+          }
+          button {
+            @include inputButton;
+          }
+        }
+      }
+    }
+  }
+}

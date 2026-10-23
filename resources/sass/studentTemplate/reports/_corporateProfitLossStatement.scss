@@ -1,0 +1,112 @@
+.corporateProfitLossStatement {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  .productContainer {
+    display: grid;
+    grid-template-columns: 250px auto;
+    border: $border;
+    border-radius: $radius;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    .productReport {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-right: $border;
+      .productTitle {
+        border-bottom: $border;
+        background: #f7f7f7;
+        height: 48px;
+      }
+      .groupSection {
+        position: relative;
+        background: #f7f7f7;
+        &.expenses {
+          background: #fff;
+          border-bottom: $border;
+        }
+        h6 {
+          margin-bottom: 0;
+          border-bottom: $border;
+          background: #eaeaea;
+          padding: 0.5rem 0.75rem;
+          font-weight: 600;
+          color: $text-primary;
+          line-height: 1.3;
+          &.addborder {
+            border-top: $border;
+          }
+        }
+        ul {
+          list-style-type: none;
+          margin-bottom: 0;
+          li {
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            border-bottom: $border;
+            &:last-of-type {
+              border-bottom: none;
+            }
+            &.highlight {
+              background: #f7f7f7;
+              // color: $text-success;
+            }
+          }
+        }
+      }
+    }
+    .productSummary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .productStatement {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border-right: $border;
+        &:last-of-type {
+          border-right: none;
+        }
+        .productTitle {
+          border-bottom: $border;
+          background: #f7f7f7;
+          padding: 0.25rem 0.75rem;
+          text-align: right;
+          small {
+            display: block;
+            & + label {
+              display: block;
+              font-weight: 500;
+            }
+          }
+        }
+        .reportSection {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          > label {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            background: #eaeaea;
+            border-bottom: $border;
+          }
+          .contentItem {
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            text-align: right;
+            border-bottom: $border;
+            &.total {
+              font-style: italic;
+              color: $text-primary;
+            }
+            &.highlight {
+              background: #f7f7f7;
+              font-weight: 500;
+              // color: $text-success;
+            }
+          }
+        }
+      }
+    }
+  }
+}

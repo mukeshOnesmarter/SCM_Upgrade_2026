@@ -1,0 +1,3454 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap);
+.wrapContainer, .adminTemplate, .wrapper, .coursesTemplate .sectionContainer, .coursesTemplate .simulationHeader, .coursesTemplate, .templateCrud {
+  width: 100%;
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+}
+
+.modalWindow, .process, #pageLoader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #ed1c24;
+  transition: all ease 0.4s;
+  color: #fff;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.button i.fa {
+  margin-right: 0.25rem;
+}
+
+.success {
+  color: darkgreen !important;
+}
+
+.danger {
+  color: red !important;
+}
+
+.text-primary {
+  color: #ed1c24 !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-synthesis: antialiased;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  background: #fff;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+h1 small, h2 small, h3 small,
+.h1 small, .h2 small, .h3 small {
+  font-weight: normal;
+  font-size: 75%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+ol ol, ul ul, ol ul, ul ol {
+  margin-bottom: 1rem;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: #ed1c24;
+  text-decoration: none;
+  transition: all ease 0.4s;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: #b7c1c4;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+small {
+  font-size: 85%;
+}
+
+#pageLoader {
+  display: block;
+}
+
+.sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #fff;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot {
+  80%, 100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%, 0% {
+    transform: scale(1);
+  }
+}
+.process .processContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.process .processContainer .cv-spinner {
+  display: flex;
+  justify-content: center;
+}
+.process .processContainer .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px #ddd solid;
+  border-top: 4px solid #ed1c24;
+  border-radius: 50%;
+  animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.process .processContainer .is-hide {
+  display: none;
+}
+
+.templateCrud {
+  display: flex;
+  flex-direction: column;
+}
+.templateCrud .crud_header {
+  position: relative;
+  padding: 1rem 0;
+}
+.templateCrud .crud_header h5 {
+  margin-bottom: 0;
+  color: #ed1c24;
+}
+.templateCrud .crud_header h5:before {
+  content: "";
+  width: 70px;
+  height: 1px;
+  background: #ed1c24;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.templateCrud .dataForm {
+  padding: 1rem 0;
+}
+.templateCrud .dataForm .dataRow {
+  position: relative;
+  display: flex;
+  grid-column-gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.templateCrud .dataForm .dataRow .inputField {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.templateCrud .dataForm .dataRow .inputField label {
+  font-weight: 400;
+  color: #000000;
+}
+.templateCrud .dataForm .dataRow .inputField label i.fa {
+  margin-right: 0.25rem;
+}
+.templateCrud .dataForm .dataRow .inputField small.help_text {
+  font-size: 0.75rem;
+  color: #a7a7a7;
+}
+.templateCrud .dataForm .dataRow .inputField small.error_text {
+  font-size: 0.75rem;
+  color: #cc3300;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text],
+.templateCrud .dataForm .dataRow .inputField input[type=email],
+.templateCrud .dataForm .dataRow .inputField input[type=password],
+.templateCrud .dataForm .dataRow .inputField input[type=date],
+.templateCrud .dataForm .dataRow .inputField input[type=number],
+.templateCrud .dataForm .dataRow .inputField textarea {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:focus,
+.templateCrud .dataForm .dataRow .inputField textarea:focus {
+  outline: none;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:disabled,
+.templateCrud .dataForm .dataRow .inputField textarea:disabled {
+  background: #f6f6f6;
+  cursor: not-allowed;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=email]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=password]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=date]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=number]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField textarea:-moz-read-only {
+  cursor: not-allowed;
+  background: #f6f6f6;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:read-only,
+.templateCrud .dataForm .dataRow .inputField textarea:read-only {
+  cursor: not-allowed;
+  background: #f6f6f6;
+}
+.templateCrud .dataForm .dataRow .inputField textarea {
+  resize: none;
+  height: 100%;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select {
+  width: 100%;
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select ::-moz-selection {
+  color: red;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select ::selection {
+  color: red;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select:focus {
+  outline: none;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox:before {
+  content: "\f107";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_iconImage {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_iconImage img {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  font-weight: 500;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.email::before {
+  content: "\f003";
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.calendar::before {
+  content: "\f073";
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.phone::before {
+  content: "\f095";
+}
+.templateCrud .dataForm .dataRow .inputField .attachment {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  background: #fff;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.thumbnail {
+  width: 135px;
+  height: 90px;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 100;
+  transform: translateY(-50%);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.source_file {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.source_file ul {
+  list-style-type: none;
+  font-size: 0.75rem;
+  margin: 0;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.attachment {
+  align-self: center;
+  position: relative;
+  padding-left: 2rem;
+  display: none;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.attachment img {
+  width: 22px;
+  position: absolute;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file {
+  width: 75px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file input[type=file] {
+  opacity: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  z-index: 100;
+  color: #ed1c24;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file:hover span {
+  color: #339900;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  background: #fff;
+  align-items: stretch;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  line-height: 1.5rem;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label input[type=radio] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label:first-of-type {
+  background: #a3a3a3;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.templateCrud .dataForm .dataRow.action_button {
+  position: relative;
+  justify-content: flex-end;
+}
+.templateCrud .dataForm .dataRow.action_button .submit-btn,
+.templateCrud .dataForm .dataRow.action_button input[type=button],
+.templateCrud .dataForm .dataRow.action_button input[type=submit],
+.templateCrud .dataForm .dataRow.action_button button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.templateCrud .dataForm .dataRow.action_button .reset-btn,
+.templateCrud .dataForm .dataRow.action_button input[type=reset] {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  background: #404565;
+  border: 1px solid #dddcdb;
+  color: #fff;
+  cursor: pointer;
+}
+.templateCrud .dataForm .dataRow.action_button .reset-btn i.fa,
+.templateCrud .dataForm .dataRow.action_button input[type=reset] i.fa {
+  margin-right: 0.75rem;
+}
+
+.dataRowWrap {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.dataRowWrap .sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+.dataRowWrap .sectionHeader h5 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+
+.documentSelection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+}
+.documentSelection .documentLibrary {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #dddcdb;
+}
+.documentSelection .documentLibrary label {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dddcdb;
+  color: #ed1c24;
+  font-weight: 500;
+  background: #a3a3a3;
+}
+.documentSelection .documentLibrary ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.documentSelection .documentLibrary ul li {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.documentSelection .documentLibrary ul li.disabled {
+  cursor: not-allowed;
+}
+.documentSelection .documentLibrary ul li input {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.documentSelection .documentLibrary ul li:last-of-type {
+  border-bottom: none;
+}
+
+.coursesTemplate .simulationHeader .courseOverview {
+  border-bottom: 1px solid #dddcdb;
+  border-width: 2px;
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  position: relative;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo:before {
+  content: "";
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 200;
+  background: #ed1c24;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo:after {
+  content: "";
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 100;
+  background: #fff;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item {
+  position: relative;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item span {
+  display: inline-block;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item span.text-gray {
+  color: #a3a3a3;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item span.lable {
+  position: relative;
+  padding-right: 1rem;
+  margin-right: 0.5rem;
+  padding-left: 1.5rem;
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item span.lable:before {
+  content: "";
+  width: 2px;
+  height: 60%;
+  background: #a3a3a3;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo .item span.lable:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border: 2px solid #ed1c24;
+  background: #f6f6f6;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .simulationHeader .courseOverview .courseInfo h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0rem;
+}
+.coursesTemplate .simulationHeader .courseOverview .shareCode {
+  text-align: center;
+}
+.coursesTemplate .simulationHeader .courseOverview .shareCode strong {
+  display: block;
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+.coursesTemplate .simulationHeader .courseOverview .shareCode small {
+  font-size: 0.75rem;
+}
+
+.coursesTemplate .simulationHeader {
+  padding: 1rem 2rem;
+}
+.coursesTemplate .performanceOverview {
+  display: grid;
+  grid-template-columns: 120px auto;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .performanceOverview .item {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+}
+.coursesTemplate .performanceOverview .item h6 {
+  margin-bottom: 0.5rem;
+}
+.coursesTemplate .performanceOverview .item h6 small {
+  display: block;
+  padding-top: 0.25rem;
+  color: #a3a3a3;
+  font-style: italic;
+  font-weight: 400;
+}
+.coursesTemplate .performanceOverview .item h6 + p {
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .performanceOverview .item:nth-of-type(1) {
+  text-align: center;
+  border-right: 1px solid #dddcdb;
+  position: relative;
+}
+.coursesTemplate .performanceOverview .item:nth-of-type(1) img {
+  max-width: 90px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.coursesTemplate .metricsOverview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.coursesTemplate .metricsOverview .quarterSelection {
+  position: relative;
+  border-bottom: 1px solid #dddcdb;
+  background: #f6f6f6;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 0;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li {
+  border-right: 1px solid #dddcdb;
+  text-align: center;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li span {
+  display: block;
+  height: 100%;
+  padding: 0.75rem 1rem;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li span small {
+  display: block;
+  color: #339900;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li span.disabled-quarter {
+  color: #a3a3a3;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li span.disabled-quarter small {
+  color: #a3a3a3;
+}
+.coursesTemplate .metricsOverview .quarterSelection ul li:last-of-type {
+  border-right: none;
+}
+.coursesTemplate .metricsOverview .grpahic {
+  position: relative;
+}
+.coursesTemplate .firmPerformances {
+  position: relative;
+}
+.coursesTemplate .firmPerformances .performancesTable {
+  position: relative;
+}
+.coursesTemplate .firmPerformances .performancesTable > h4 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.coursesTemplate .firmPerformances .performancesTable > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr {
+  position: relative;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr th {
+  font-weight: 600;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr td,
+.coursesTemplate .firmPerformances .performancesTable > table tr th {
+  border: 1px solid #dddcdb;
+  border-collapse: collapse;
+  padding: 0.25rem 0.75rem;
+  text-align: right;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr td:first-of-type,
+.coursesTemplate .firmPerformances .performancesTable > table tr th:first-of-type {
+  text-align: left;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr td.fw-bold,
+.coursesTemplate .firmPerformances .performancesTable > table tr th.fw-bold {
+  font-weight: 700;
+  color: #339900;
+  text-decoration: underline;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr:last-of-type td {
+  border: none;
+}
+.coursesTemplate .firmPerformances .performancesTable > table tr.winner {
+  background: #f6f6f6;
+  font-weight: 600;
+}
+.coursesTemplate .sectionContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem;
+}
+.coursesTemplate .sectionContainer .sectionTitle {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .sectionContainer .sectionTitle h4 {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+}
+.coursesTemplate .sectionContainer .sectionTitle h4 + p {
+  margin-bottom: 0.5rem;
+}
+.coursesTemplate .sectionContainer .sectionTitle h4 + p + a {
+  display: inline-block;
+  border-radius: 2rem;
+  background: #ed1c24;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+.coursesTemplate .sectionContainer .sectionTitle h4 + p + a i.fa {
+  margin-right: 0.25rem;
+}
+.coursesTemplate .sectionContainer .dataListing {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow .item {
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow .item.title {
+  position: relative;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow .item.title label[for=heading] {
+  font-weight: 500;
+}
+.coursesTemplate .sectionContainer .dataListing .listingRow .item.action {
+  margin-left: auto;
+  padding-right: 1rem;
+}
+.coursesTemplate .addStudent {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.coursesTemplate .addStudent .templateCrud {
+  position: relative;
+  padding: 1.25rem;
+}
+.coursesTemplate .addStudent .templateCrud h5 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  position: relative;
+}
+.coursesTemplate .addStudent .templateCrud h5 + p {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.coursesTemplate .addStudent .templateCrud h5 + p:before {
+  content: "";
+  width: 140px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  background: #ed1c24;
+}
+.coursesTemplate .addStudent .templateCrud h5 + p + .dataForm {
+  padding: 0;
+}
+.coursesTemplate .addStudent .templateCrud:first-of-type {
+  background: #f6f6f6;
+  border-bottom: 1px solid #dddcdb;
+}
+.coursesTemplate .simulationSync {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coursesTemplate .simulationSync .message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coursesTemplate .simulationSync .message > h3 {
+  margin-bottom: 0.25rem;
+  color: #ed1c24;
+  margin-top: 1rem;
+}
+.coursesTemplate .simulationSync .message > h3 + p {
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .simulationSync .message > h3 + p + p {
+  margin-bottom: 0;
+}
+.coursesTemplate .simulationSync .message .loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -webkit-mask: linear-gradient(0deg, #000 55%, rgba(0, 0, 0, 0) 0) bottom/100% 18.18%;
+          mask: linear-gradient(0deg, #000 55%, rgba(0, 0, 0, 0) 0) bottom/100% 18.18%;
+  background: linear-gradient(#f03355 0 0) bottom/100% 0% no-repeat #ddd;
+  animation: l8 2s infinite steps(7);
+}
+@keyframes l8 {
+  100% {
+    background-size: 100% 115%;
+  }
+}
+
+.coursesTemplate .courseListing {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+.coursesTemplate .courseListing .course {
+  display: grid;
+  grid-template-columns: auto 100px;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem;
+  align-items: center;
+}
+.coursesTemplate .courseListing .course:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseListing .course .quickInfo {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseListing .course .quickInfo h5 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle {
+  display: flex;
+  font-size: 0.75rem;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle span.status_completed {
+  color: #e5a000;
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle span.status_progress {
+  color: #339900;
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle .quarter {
+  display: inline-block;
+  position: relative;
+  padding-left: 1.25rem;
+  text-transform: uppercase;
+  color: #7b7b7b;
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle .quarter img {
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseListing .course .quickInfo .wrapTitle .quarter span {
+  color: #ed1c24;
+}
+.coursesTemplate .courseListing .course .quickInfo .groupsWrap {
+  position: relative;
+  display: none;
+  margin-top: 0.25rem;
+}
+.coursesTemplate .courseListing .course .quickInfo .groupsWrap .groups {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  margin-top: 0.25rem;
+}
+.coursesTemplate .courseListing .course .quickInfo .groupsWrap .groups .group {
+  border-radius: 2rem;
+  border: 2px solid #14ae5c;
+  position: relative;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  position: relative;
+  padding-left: 135px;
+  font-weight: 500px;
+  overflow: hidden;
+}
+.coursesTemplate .courseListing .course .quickInfo .groupsWrap .groups .group span {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #14ae5c;
+  border-radius: 2rem;
+  background: #ebffee;
+  position: absolute;
+  left: -2px;
+  top: -1px;
+  z-index: 100;
+  background: url("/images/icon/simulation-group.svg") no-repeat 1rem center;
+  color: #14ae5c;
+  padding-left: 3.25rem;
+}
+.coursesTemplate .courseListing .course.active {
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .courseListing .course.active .quickInfo {
+  position: relative;
+}
+.coursesTemplate .courseListing .course.active .quickInfo .groupsWrap {
+  display: block;
+}
+
+.coursesTemplate .courseDetail {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .pageTitle {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.coursesTemplate .courseDetail .pageTitle h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.coursesTemplate .courseDetail .pageTitle h4 small {
+  display: block;
+  font-size: 0.875rem;
+  color: #ed1c24;
+  padding-top: 2px;
+  font-weight: 400;
+}
+.coursesTemplate .courseDetail .pageTitle h4 + p {
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .inviteStudent {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  justify-content: center;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.coursesTemplate .courseDetail .inviteStudent .avatar {
+  position: relative;
+}
+.coursesTemplate .courseDetail .inviteStudent .avatar img {
+  max-width: 42px;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  font-size: 1rem;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite .textInput {
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite .textInput input[type=text] {
+  width: 300px;
+  padding: 0.75rem;
+  border: none;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite .textInput input[type=text]:focus {
+  border: none;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite button,
+.coursesTemplate .courseDetail .inviteStudent .sendInvite a {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: #ed1c24;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .inviteStudent .sendInvite button:hover,
+.coursesTemplate .courseDetail .inviteStudent .sendInvite a:hover {
+  background: #404565;
+}
+.coursesTemplate .courseDetail .inviteStudent .externalButton {
+  display: inline-flex;
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .inviteStudent .externalButton a {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 0.75rem;
+  background: #ed1c24;
+  color: #fff;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .inviteStudent .externalButton a:hover {
+  background: #404565;
+}
+.coursesTemplate .courseDetail .studentInviteGroups {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .sectionTitle {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .sectionTitle h5 {
+  margin-bottom: 0rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .sectionTitle h5 + p {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .sectionTitle h5 + p span {
+  display: block;
+  color: #a3a3a3;
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  background: #f6f6f6;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .errorText,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .errorText {
+  position: relative;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .errorText strong,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .errorText strong {
+  font-weight: 500;
+  display: block;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .errorText strong + p,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .errorText strong + p {
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 160px;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile .item,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile .item {
+  position: relative;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile .item label,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile .item label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile .item label + input,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile .item label + input {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile .item label + input + small,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile .item label + input + small {
+  display: block;
+  color: #a3a3a3;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadFile .item.downloadFormat,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadFile .item.downloadFormat {
+  margin-left: auto;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .shareLink,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .shareLink {
+  position: relative;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .shareLink label,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .shareLink label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .shareLink label + textarea,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .shareLink label + textarea {
+  display: block;
+  font-family: inherit;
+  font-size: 0.75rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  resize: none;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .shareLink label + textarea + small,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .shareLink label + textarea + small {
+  display: block;
+  color: #a3a3a3;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .shareLink label + textarea:focus,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .shareLink label + textarea:focus {
+  outline: none;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadSubmit,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadSubmit {
+  text-align: right;
+  margin-top: auto;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadSubmit button,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadSubmit button {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: #ed1c24;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadSubmit button i.fa,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadSubmit button i.fa {
+  margin-right: 0.5rem;
+}
+.coursesTemplate .courseDetail .studentInviteGroups .bulkInvite .inviteDataForm .uploadSubmit button:hover,
+.coursesTemplate .courseDetail .studentInviteGroups .registrationLink .inviteDataForm .uploadSubmit button:hover {
+  background: #404565;
+}
+.coursesTemplate .courseDetail .quickStatices {
+  display: flex;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .courseDetail .quickStatices .item {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border-right: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .quickStatices .item:last-of-type {
+  border-right: none;
+}
+.coursesTemplate .courseDetail .quickStatices .item label[for=title] {
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .quickStatices .item label[for=title] + p {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  position: relative;
+}
+.coursesTemplate .courseDetail .quickStatices .item label[for=title] + p:before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: #ed1c24;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.coursesTemplate .courseDetail .quickStatices .item label[for=title] + p + strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  background: #f6f6f6;
+  margin-bottom: 1rem;
+  padding-left: 120px;
+  position: relative;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl:before {
+  content: "";
+  width: 120px;
+  height: 100%;
+  background: url("/images/ChatGPT-Logo.png") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .sectionTitle {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0;
+  border-left: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .sectionTitle h5 {
+  margin-bottom: 0rem;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .sectionTitle h5 + p {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .sectionTitle h5 + p span {
+  display: block;
+  color: #a3a3a3;
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+  padding: 1rem;
+  border-left: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item {
+  position: relative;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item button,
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item a {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: #ed1c24;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item button i.fa,
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item a i.fa {
+  margin-right: 0.5rem;
+}
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item button:hover,
+.coursesTemplate .courseDetail .aiAnalysisControl .inviteDataForm .item a:hover {
+  background: #404565;
+}
+.coursesTemplate .courseDetail .switchPaymentMode {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  border-color: #ffeeba;
+}
+.coursesTemplate .courseDetail .switchPaymentMode > h6 {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem;
+  margin-bottom: 0;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.coursesTemplate .courseDetail .switchPaymentMode .description {
+  padding: 0.25rem;
+  padding: 0.75rem;
+}
+.coursesTemplate .courseDetail .switchPaymentMode .description p {
+  margin-bottom: 0.5rem;
+}
+.coursesTemplate .courseDetail .switchPaymentMode .description p + p {
+  color: #a3a3a3;
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .switchPaymentMode .description p + p + p {
+  color: #000000;
+  font-style: normal;
+}
+.coursesTemplate .courseDetail .switchPaymentMode .description p + p + p + a {
+  display: inline-block;
+  color: #fff3cd;
+  background-color: #856404;
+  border-color: #856404;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+.coursesTemplate .courseDetail .deploySimulation {
+  text-align: center;
+  padding-top: 2rem;
+}
+.coursesTemplate .courseDetail .firmManagement {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #b9b9b9;
+  border-radius: 0.25rem;
+  margin-top: 2rem;
+  background: #f2f2f7;
+  overflow: hidden;
+}
+.coursesTemplate .courseDetail .firmManagement .sectionTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 0.75rem 1rem 0rem;
+}
+.coursesTemplate .courseDetail .firmManagement .sectionTitle label[for=heading] {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .firmManagement .sectionTitle label[for=heading] + p {
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+.coursesTemplate .courseDetail .firmManagement .firmManagementActions {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .courseDetail .firmManagement .firmManagementActions .firmCount {
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 1.25rem;
+  background: #f6f6f6;
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .firmManagement .firmManagementActions button {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: #ed1c24;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .firmManagement .firmManagementActions button i.fa {
+  margin-right: 0.5rem;
+}
+.coursesTemplate .courseDetail .firmManagement .firmManagementActions button:hover {
+  background: #404565;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup {
+  display: grid;
+  grid-template-columns: 230px auto;
+  border: 1px solid #b9b9b9;
+  border-radius: 0.25rem;
+  margin-top: 2rem;
+  background: #f2f2f7;
+  overflow: hidden;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .widgetTitle {
+  border-bottom: 1px solid #dddcdb;
+  padding: 1rem 1rem;
+  color: #ed1c24;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .widgetTitle a {
+  display: inline-block;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .widgetTitle a img {
+  width: 36px;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .widgetTitle + p.note {
+  padding: 0.5rem 1rem 0.375rem;
+  border-bottom: 1px solid #dddcdb;
+  margin-bottom: 0;
+  font-style: italic;
+  color: #a3a3a3;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #dddcdb;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: #8b8b8b;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group:before {
+  content: "";
+  width: 50px;
+  height: 5px;
+  border-bottom: 1px solid #ed1c24;
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group:last-of-type:before {
+  display: none;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group label[for=title] {
+  font-size: 1rem;
+  display: block;
+  font-weight: 500;
+  line-height: 1;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group label[for=title] + small {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding-top: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group label[for=title] + small.unassigned {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group:hover, .coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group.active {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group:hover:before, .coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group.active:before {
+  width: 100px;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group:hover label[for=title], .coursesTemplate .courseDetail .simulationTeamGroup .wrapGroups .group.active label[for=title] {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup {
+  position: relative;
+  display: none;
+  height: 100%;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup.active {
+  display: flex;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .teamMembers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .assignStudentToGroup {
+  flex: 1;
+  flex-direction: column;
+  border-left: 1px solid #dddcdb;
+  background: #fff;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.profilePicture {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.profilePicture img {
+  width: 48px;
+  border-radius: 100%;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.studentInfo {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] {
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] + small {
+  display: block;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] + small + small {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action button.assignGroup {
+  display: inline-block;
+  border-radius: 2rem;
+  background: #404565;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  transition: all ease 0.4s;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action button.assignGroup:hover {
+  background: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action button.trash {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0.5;
+  transition: all ease 0.4s;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action button.trash:hover {
+  opacity: 1;
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action a {
+  display: inline-block;
+  padding: 0.25rem;
+  opacity: 0.5;
+  transition: all ease 0.4s;
+  font-size: 1rem;
+  color: #000000;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action a.trash {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .student .item.action a:hover {
+  opacity: 1;
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .plusMore {
+  position: relative;
+  padding: 0.5rem;
+  padding-left: 5rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .studentsList .plusMore .count {
+  display: inline-block;
+  border: 1px solid #339900;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  color: #339900;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .noRecords {
+  padding: 1rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .noRecords h5 {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .noRecords h5 + p {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationTeamGroup .studentWrap .studentGroup .noRecords h5 + p + small {
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .simulationWidgets {
+  border: 1px solid #b9b9b9;
+  border-radius: 0.25rem;
+  display: grid;
+  grid-template-columns: 230px auto 400px;
+  margin-top: 0rem;
+  background: #f2f2f7;
+  overflow: hidden;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #b9b9b9;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget:last-of-type {
+  border-right: none;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle {
+  border-bottom: 1px solid #dddcdb;
+  padding: 1rem 1rem;
+  color: #ed1c24;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle a {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle a.mimic {
+  right: 7rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle a.mimic img {
+  width: 30px;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle a.extendGroup {
+  right: 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .widgetTitle a.extendGroup img {
+  width: 36px;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties > p {
+  padding: 1rem;
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .enrollmentStatus {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .enrollmentStatus ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .enrollmentStatus ul li {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.375rem 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .enrollmentStatus ul li strong {
+  font-weight: 600;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.profilePicture {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.profilePicture img {
+  width: 48px;
+  border-radius: 100%;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.facultyInfo {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.facultyInfo label[for=heading] {
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.facultyInfo label[for=heading] + small {
+  display: block;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.facultyInfo label[for=heading] + small + small {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.action {
+  margin-left: auto;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.action a {
+  display: inline-block;
+  padding: 0.5rem;
+  opacity: 0.5;
+  transition: all ease 0.4s;
+  font-size: 1rem;
+  color: #000000;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .faculty .item.action a:hover {
+  opacity: 1;
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .plusMore {
+  position: relative;
+  padding: 0.5rem;
+  padding-left: 5rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .facultyWrap .faculties .plusMore .count {
+  display: inline-block;
+  border: 1px solid #339900;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  color: #339900;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: #8b8b8b;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group:before {
+  content: "";
+  width: 50px;
+  height: 5px;
+  border-bottom: 1px solid #ed1c24;
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  transition: all ease 0.4s;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group:last-of-type:before {
+  display: none;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group label[for=title] {
+  font-size: 1rem;
+  display: block;
+  font-weight: 500;
+  line-height: 1;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group label[for=title] + small {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding-top: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group label[for=title] + small.unassigned {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group:hover, .coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group.active {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group:hover:before, .coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group.active:before {
+  width: 100px;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group:hover label[for=title], .coursesTemplate .courseDetail .simulationWidgets .widget .wrapGroups .group.active label[for=title] {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup {
+  position: relative;
+  display: none;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup.active {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.profilePicture {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.profilePicture img {
+  width: 48px;
+  border-radius: 100%;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.studentInfo {
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] {
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] + small {
+  display: block;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.studentInfo label[for=heading] + small + small {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.paymentstatus {
+  width: 100px;
+  margin-left: auto;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.paymentstatus small {
+  position: relative;
+  display: inline-block;
+  color: #339900;
+  padding: 0.25rem 0rem;
+  padding-left: 1.75rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.paymentstatus small img {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.action {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.action a {
+  display: inline-block;
+  padding: 0.25rem;
+  opacity: 0.5;
+  transition: all ease 0.4s;
+  font-size: 1rem;
+  color: #000000;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.action a.trash {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .student .item.action a:hover {
+  opacity: 1;
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .plusMore {
+  position: relative;
+  padding: 0.5rem;
+  padding-left: 5rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .studentsList .plusMore .count {
+  display: inline-block;
+  border: 1px solid #339900;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  color: #339900;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .noRecords {
+  padding: 1rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .noRecords h5 {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .noRecords h5 + p {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationWidgets .widget .studentWrap .studentGroup .noRecords h5 + p + small {
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .studentsDistribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coursesTemplate .courseDetail .studentsDistribution .moveInstruction {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+  border: 1px solid #ed1c24;
+  border-width: 2px;
+  border-radius: 2rem;
+  color: #ed1c24;
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 3rem;
+}
+.coursesTemplate .courseDetail .studentsDistribution .moveInstruction i.fa {
+  color: #000000;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 3rem 0 1rem;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .groupHeader {
+  display: flex;
+  margin-bottom: 0rem;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .groupHeader .item {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .groupHeader .item label[for=heading] {
+  font-size: 0.875rem;
+  color: #ed1c24;
+  text-align: left;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .groupHeader .item label[for=heading] small {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #000000;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap {
+  border: 1px solid #b9b9b9;
+  border-radius: 0.25rem;
+  display: flex;
+  margin-top: 1rem;
+  background: #f2f2f7;
+  overflow: hidden;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item {
+  flex-grow: 1;
+  border-right: 1px solid #dddcdb;
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item:last-of-type {
+  border-right: none;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item label[for=heading] {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem {
+  position: relative;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight {
+  display: flex;
+  -moz-column-gap: 1.75rem;
+       column-gap: 1.75rem;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft a, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight a {
+  color: #000000;
+  opacity: 0.2;
+  display: inline-block;
+  padding: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft a.trash, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight a.trash {
+  color: #000000;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft a.trash:hover, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight a.trash:hover {
+  color: #ed1c24;
+  opacity: 1;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft a.moveArrow, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight a.moveArrow {
+  color: #000000;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedLeft a.moveArrow:hover, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student .stditem.fixedRight a.moveArrow:hover {
+  color: #339900;
+  opacity: 1;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover {
+  background: #f1f1f1;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem {
+  position: relative;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedLeft, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedRight {
+  position: relative;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedLeft a, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedRight a {
+  opacity: 0.5;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedLeft a.trash, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedRight a.trash {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedLeft a.moveArrow, .coursesTemplate .courseDetail .studentsDistribution .groupsWrap .studentsWrap .item .studentList .student:hover .stditem.fixedRight a.moveArrow {
+  color: #339900;
+}
+.coursesTemplate .courseDetail .assignGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle label[for=heading] {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle label[for=heading] + p {
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle span {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle span a {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background: #fff;
+  border: 1px solid #339900;
+  color: #339900;
+  border-radius: 2rem;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .sectionTitle span a:hover {
+  background: #339900;
+  color: #fff;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .studentWrap {
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  padding: 0 1rem;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .studentWrap .student {
+  border-bottom: 1px solid #ed1c24;
+  padding: 0.5rem 0rem;
+}
+.coursesTemplate .courseDetail .assignGroup .assignGroupContainer .studentWrap .student:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .decisionArea {
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #dddcdb;
+  font-size: 0.75rem;
+  padding-left: 4rem;
+  background: #f6f6f6;
+}
+.coursesTemplate .courseDetail .decisionArea span {
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationQuarters {
+  border: 1px solid #b9b9b9;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+.coursesTemplate .courseDetail .simulationQuarters > h5 {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .simulationQuarters > h5 small {
+  display: block;
+  color: #a3a3a3;
+  font-weight: 400;
+  padding-top: 2px;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration:before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  left: -2px;
+  top: 0;
+  position: absolute;
+  z-index: 100;
+  background: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration label {
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration label + p {
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration label + p + ul {
+  margin-bottom: 0.5rem;
+  list-style-type: none;
+  color: #a3a3a3;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration label + p + ul + p {
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration .daysSelection {
+  display: flex;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration .daysSelection label {
+  position: relative;
+  padding-left: 1rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration .daysSelection label input[type=radio] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration .daysSelection + button {
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: #339900;
+  color: #fff;
+  border-radius: 2rem;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+.coursesTemplate .courseDetail .simulationQuarters .extendDuration .daysSelection + button:hover {
+  background: rgb(47.6, 142.8, 0);
+}
+.coursesTemplate .courseDetail .simulationQuarters .additionalQuarter {
+  padding: 0.75rem;
+  background: #fff;
+  text-align: right;
+}
+.coursesTemplate .courseDetail .simulationQuarters .additionalQuarter button {
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background: #339900;
+  color: #fff;
+  border-radius: 2rem;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+.coursesTemplate .courseDetail .simulationQuarters .additionalQuarter button i.fa {
+  margin-right: 0.25rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .additionalQuarter button:hover {
+  background: rgb(47.6, 142.8, 0);
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter {
+  display: grid;
+  grid-template-columns: 50px 100px repeat(2, 100px) auto 50px;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter.head {
+  background: #ececec;
+  font-weight: 500;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter:nth-of-type(odd) {
+  background: #f6f6f6;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter:last-of-type {
+  border: none;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item {
+  padding: 0.375rem 0.75rem;
+  position: relative;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item i.fa {
+  font-size: 0.875rem;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item i.alphalight {
+  color: #a3a3a3;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item.label {
+  color: #ed1c24;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item.autoLeft {
+  margin-left: auto;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item.autoLeft a:hover {
+  text-decoration: underline;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item.autoLeft small {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  background: #f6f6f6;
+  border: 1px solid transparent;
+}
+.coursesTemplate .courseDetail .simulationQuarters .quarter .item.autoLeft small.closed {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.coursesTemplate .courseDetail .assignGroupPending {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup {
+  flex: 1;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup > h5 {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup > h5 small {
+  display: block;
+  font-weight: 400;
+  padding-top: 2px;
+  font-size: 0.75rem;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 237px;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 1rem;
+  background: #fff;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student:nth-of-type(odd) {
+  background: #fff;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student .item {
+  position: relative;
+  padding: 0;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student .item.studentInfo {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student .item.studentInfo small {
+  display: block;
+  color: #000000;
+}
+.coursesTemplate .courseDetail .assignGroupPending .assignStudentToGroup .studentsList .student .item.assignGroup {
+  margin-left: auto;
+}
+
+.coursesTemplate .quarterInfo {
+  display: flex;
+  flex-direction: column;
+}
+.coursesTemplate .quarterInfo .sectionTitle {
+  position: relative;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 + p {
+  margin-bottom: 0.5rem;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 + p + ul {
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 + p + ul + p {
+  margin-bottom: 0;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 + p + ul + p a {
+  display: inline-block;
+  border-radius: 2rem;
+  background: #ed1c24;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+.coursesTemplate .quarterInfo .sectionTitle h4 + p + ul + p a i.fa {
+  margin-right: 0.25rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem 0;
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+  margin-top: 0;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region {
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region > .title {
+  padding: 0.5rem;
+  font-size: rem;
+  font-weight: 500;
+  color: #ed1c24;
+  border-bottom: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product {
+  border-right: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product:nth-of-type(even) {
+  background: #f1f1f1;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product:last-of-type {
+  border-right: none;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product > .title {
+  text-align: center;
+  border-bottom: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding: 0.25rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product > .title small {
+  font-size: 0.75rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product > .title span {
+  display: block;
+  font-weight: 500;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm {
+  border-bottom: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm:last-of-type {
+  border-bottom: none;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm > .title {
+  text-align: center;
+  border-bottom: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding: 0.25rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm > .title small {
+  font-size: 0.75rem;
+  display: block;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm > .title span {
+  display: block;
+  font-weight: 500;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel {
+  text-align: center;
+  padding: 0.25rem 0;
+  font-size: 0.75rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title span {
+  display: block;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title span small {
+  display: block;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title + ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title + ul li {
+  position: relative;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title + ul li small {
+  display: block;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title + ul li small.initialDemand {
+  color: #e5a000;
+}
+.coursesTemplate .quarterInfo .wrapRegion .region .productWrap .product .firmsWrap .firm .demandChannelWrap .demandChannel .title + ul li small.forecastDemand {
+  color: #339900;
+}
+.coursesTemplate .quarterInfo .analysisSummary {
+  position: relative;
+  margin-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.coursesTemplate .quarterInfo .analysisSummary table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody {
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr {
+  border: 1px solid #dddcdb;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr.topheader th {
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th,
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td {
+  text-align: left;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th.market_price,
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.market_price {
+  width: 80px !important;
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th.past,
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.past {
+  width: 60px;
+  background: #eaeaea;
+  font-weight: 500;
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th.demandShifted,
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.demandShifted {
+  font-weight: 700;
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th.center,
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.center {
+  text-align: center;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr th {
+  border: 1px solid #dddcdb;
+  padding: 0.25rem;
+  font-weight: 600;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td {
+  border: 1px solid #dddcdb;
+  padding: 0.25rem;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.region {
+  color: #ed1c24;
+  font-weight: 600;
+  background: #eaeaea;
+  padding: 0.5rem 0.25rem;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.product {
+  font-weight: 600;
+  background: #f7f7f7;
+  padding: 0.5rem 0.25rem;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td.channel {
+  font-weight: 600;
+  padding: 0.5rem 0.25rem;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td small {
+  display: block;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td small.positive {
+  color: #339900;
+}
+.coursesTemplate .quarterInfo .analysisSummary table tbody tr td small.negative {
+  color: #cc3300;
+}
+
+.studentListing {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.studentListing .listingRow {
+  display: grid;
+  grid-template-columns: 70px 250px auto 100px;
+  align-items: center;
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid #dddcdb;
+  transition: all ease 0.4s;
+}
+.studentListing .listingRow:last-of-type {
+  border-bottom: none;
+}
+.studentListing .listingRow:hover {
+  background: #f6f6f6;
+}
+.studentListing .listingRow .item {
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.studentListing .listingRow .item.profilePicture {
+  position: relative;
+  padding: 0;
+}
+.studentListing .listingRow .item.profilePicture img {
+  border-radius: 100%;
+  width: 50px;
+}
+.studentListing .listingRow .item.title {
+  position: relative;
+}
+.studentListing .listingRow .item.title label[for=heading] {
+  font-weight: 500;
+}
+.studentListing .listingRow .item.title label[for=heading] + small {
+  display: block;
+}
+.studentListing .listingRow .item.title label[for=heading] + small i.fa {
+  color: #ed1c24;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+.studentListing .listingRow .item.title label[for=heading] + small + small {
+  color: #a3a3a3;
+}
+.studentListing .listingRow .item.courseTitle {
+  position: relative;
+}
+.studentListing .listingRow .item.courseTitle small {
+  display: block;
+  color: #ed1c24;
+}
+.studentListing .listingRow .item.action {
+  position: relative;
+  margin-left: auto;
+}
+.studentListing .listingRow .item.action a {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.invitees {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.invitees .listingRow {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  transition: all ease 0.4s;
+}
+.invitees .listingRow:last-of-type {
+  border-bottom: none;
+}
+.invitees .listingRow .item {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.invitees .listingRow .item.graphic {
+  position: relative;
+  padding: 0;
+}
+.invitees .listingRow .item.graphic img {
+  width: 36px;
+}
+.invitees .listingRow .item.title {
+  position: relative;
+  margin-left: 0.5rem;
+}
+.invitees .listingRow .item.title small {
+  color: #a3a3a3;
+}
+.invitees .listingRow .item.status {
+  margin-left: auto;
+}
+.invitees .listingRow .item.status img {
+  width: 24px;
+}
+
+.studentEnroll {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.studentEnroll .listingRow {
+  display: grid;
+  grid-template-columns: 50px auto 140px 120px;
+  align-items: center;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  transition: all ease 0.4s;
+  padding: 0.25rem 0rem;
+}
+.studentEnroll .listingRow:last-of-type {
+  border-bottom: none;
+}
+.studentEnroll .listingRow .item {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+}
+.studentEnroll .listingRow .item.profilePicture {
+  position: relative;
+  padding: 0;
+}
+.studentEnroll .listingRow .item.profilePicture img {
+  border-radius: 100%;
+  width: 50px;
+}
+.studentEnroll .listingRow .item.title {
+  position: relative;
+}
+.studentEnroll .listingRow .item.title label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.studentEnroll .listingRow .item.title label + small {
+  display: block;
+}
+.studentEnroll .listingRow .item.title label + small i.fa {
+  color: #ed1c24;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+.studentEnroll .listingRow .item.title label + small + small {
+  color: #a3a3a3;
+}
+.studentEnroll .listingRow .item.groupStatus {
+  position: relative;
+}
+.studentEnroll .listingRow .item.groupStatus span {
+  color: #a3a3a3;
+}
+.studentEnroll .listingRow .item.paymentStatus {
+  text-align: left;
+  padding-left: 1rem;
+}
+.studentEnroll .listingRow .item.paymentStatus span {
+  color: #a3a3a3;
+}
+.studentEnroll .listingRow .item.paymentStatus span.success {
+  color: #339900;
+}
+.studentEnroll .listingRow .item.paymentStatus span.warning {
+  color: #741e11;
+}
+
+.studentProfileTemplate {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+.studentProfileTemplate .studentBio {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.studentProfileTemplate .studentBio h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+.studentProfileTemplate .studentBio h3 small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding-top: 2px;
+}
+.studentProfileTemplate .demographics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.studentProfileTemplate .demographics ul {
+  margin-bottom: 0;
+}
+.studentProfileTemplate .demographics .mimicProfile {
+  position: relative;
+}
+.studentProfileTemplate .demographics .mimicProfile a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.studentProfileTemplate .demographics .mimicProfile a img {
+  max-width: 50px;
+}
+.studentProfileTemplate .actionContainer {
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+}
+.studentProfileTemplate .actionContainer .section {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.studentProfileTemplate .actionContainer .section.joiningPending {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.studentProfileTemplate .actionContainer .section.joiningPending p {
+  margin-bottom: 0;
+}
+.studentProfileTemplate .actionContainer .section.paymentPending {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.studentProfileTemplate .actionContainer .section.paymentPending p {
+  margin-bottom: 1rem;
+}
+.studentProfileTemplate .actionContainer .section.paymentPending p small {
+  display: block;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful h5 {
+  color: #155724;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful h5 + p {
+  margin-bottom: 0.25rem;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful h5 + p + ul {
+  list-style-type: none;
+  margin-bottom: 0rem;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful h5 + p + ul li {
+  position: relative;
+}
+.studentProfileTemplate .actionContainer .section.paymentSuccessful h5 + p + ul li strong {
+  font-weight: 600;
+}
+.studentProfileTemplate .actionContainer .section:last-of-type {
+  border-bottom: none;
+}
+.studentProfileTemplate .actionContainer .section h5 {
+  margin-bottom: 0rem;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+.studentProfileTemplate .actionContainer .section h5 i.fa {
+  margin-right: 0.25rem;
+}
+.studentProfileTemplate .actionContainer .section h5 + p {
+  margin-bottom: 0.75rem;
+}
+.studentProfileTemplate .actionContainer .section button {
+  display: inline-block;
+  background: #404565;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  transition: all ease 0.4s;
+}
+.studentProfileTemplate .actionContainer .section button:hover {
+  background: #ed1c24;
+}
+
+.institutePayment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.institutePayment .summaryContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+.institutePayment .summaryContainer p:last-of-type {
+  margin-bottom: 0rem;
+  font-style: italic;
+}
+.institutePayment .summaryContainer > h5 {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #ed1c24;
+  margin-bottom: 0;
+}
+.institutePayment .summaryContainer > h5 small {
+  display: block;
+  font-size: 0.875rem;
+  color: #000000;
+  padding-top: 0.25rem;
+  font-weight: 400;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer.resetPadding {
+  padding: 0 !important;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .student {
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .student:nth-of-type(even) {
+  background: #f6f6f6;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .student .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .student:last-of-type {
+  border-bottom: none;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission {
+  display: flex;
+  flex-direction: column;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .inputField {
+  position: relative;
+  margin-bottom: 0.75rem;
+  row-gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .inputField input[type=text] {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 500px;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .inputField + label {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .inputField + label input[type=checkbox] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .inputField + label + h6 {
+  margin-bottom: 0;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .submitButton {
+  position: relative;
+  padding-top: 0.75rem;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .submitButton button {
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background: #339900;
+  color: #fff;
+  border-radius: 2rem;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+.institutePayment .summaryContainer > h5 + .infoContainer .requestSubmission .submitButton button:hover {
+  background: rgb(47.6, 142.8, 0);
+}
+
+.adminTemplate {
+  position: relative;
+}
+.adminTemplate .asideLeft {
+  width: 15%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: #f6f6f6;
+  border-right: 1px solid #ed1c24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminTemplate .asideLeft .logo {
+  padding: 1rem 0;
+}
+.adminTemplate .asideLeft .manageProfile {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.adminTemplate .asideLeft .manageProfile h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ed1c24;
+  font-size: 1rem;
+}
+.adminTemplate .asideLeft .manageProfile h4 + ul {
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.adminTemplate .asideLeft .manageProfile h4 + ul li {
+  position: relative;
+  text-align: center;
+}
+.adminTemplate .asideLeft .manageProfile h4 + ul li a {
+  display: inline-block;
+  padding: 0.25rem;
+  color: #000000;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.adminTemplate .asideLeft .navigation {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.adminTemplate .asideLeft .navigation ul {
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.adminTemplate .asideLeft .navigation ul li {
+  position: relative;
+}
+.adminTemplate .asideLeft .navigation ul li a {
+  display: inline-block;
+  padding: 0.25rem;
+  color: #000000;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.adminTemplate .asideLeft .navigation ul li a.active {
+  color: #ed1c24;
+}
+.adminTemplate .asideLeft .takeTour {
+  text-align: center;
+}
+.adminTemplate .asideLeft .takeTour img {
+  max-width: 120px;
+}
+.adminTemplate .asideRight {
+  position: relative;
+  float: right;
+  width: 85%;
+}
+.adminTemplate .asideRight .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.adminTemplate .asideRight .header .item {
+  position: relative;
+}
+.adminTemplate .asideRight .header .item.brandLogo {
+  display: inline-block;
+}
+.adminTemplate .asideRight .header .item.activeUser {
+  position: relative;
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+}
+.adminTemplate .asideRight .header .item.activeUser .item {
+  position: relative;
+}
+.adminTemplate .asideRight .header .item.activeUser .item.profileImage {
+  text-align: center;
+}
+.adminTemplate .asideRight .header .item.activeUser .item.profileImage img {
+  width: 42px;
+  border-radius: 100%;
+}
+.adminTemplate .asideRight .fotter {
+  display: flex;
+  padding: 1.25rem 2rem;
+  background: #f7f7f7;
+  position: relative;
+}
+.adminTemplate .asideRight .fotter::before {
+  content: "";
+  width: 80px;
+  height: 2px;
+  border-top: 1px solid #ed1c24;
+  position: absolute;
+  left: 2rem;
+  top: 0;
+}
+.adminTemplate .asideRight .fotter span {
+  display: inline-block;
+  padding: 0 0.25rem;
+  color: #ed1c24;
+}
+.adminTemplate .asideRight .adminLayout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 2rem;
+}
+.dashboard .courseAlert {
+  position: relative;
+}
+.dashboard .courseAlert h3 {
+  margin-bottom: 1;
+}
+.dashboard .courseAlert h3 + p {
+  margin-bottom: 1rem;
+}
+
+.screenAlert {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.7);
+}
+.screenAlert .alertContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 3rem;
+}
+.screenAlert .alert {
+  background: #eaf0ff;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  display: inline-flex;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  position: relative;
+  padding-left: 3rem;
+}
+.screenAlert .alert:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+.screenAlert .alert p {
+  margin-bottom: 0;
+}
+.screenAlert.success {
+  color: #339900;
+}
+.screenAlert.success .alert:before {
+  background-image: url("/images/alert-icon/success.svg");
+}
+.screenAlert.warning {
+  color: #741e11;
+}
+.screenAlert.warning .alert:before {
+  background-image: url("/images/alert-icon/warning.svg");
+}
+.screenAlert.error {
+  color: #cc3300;
+}
+.screenAlert.error .alert:before {
+  background-image: url("/images/alert-icon/error.svg");
+}
+
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: #ed1c24;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  opacity: 1;
+  transform: rotate(3deg) translate(0, -4px);
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+.nprogress-custom-parent #nprogress .bar,
+.nprogress-custom-parent #nprogress .spinner {
+  position: absolute;
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

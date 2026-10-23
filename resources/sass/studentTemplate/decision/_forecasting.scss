@@ -1,0 +1,170 @@
+.forecastingSection {
+  display: flex;
+  flex-direction: column;
+  .lastSavedBy {
+    @extend %lastSavedBy;
+  }
+  button {
+    @extend %button;
+  }
+  .regionWrapper {
+    display: flex;
+    column-gap: 0.75rem;
+    .region {
+      flex: 1;
+      border: $border;
+      border-radius: $radius;
+      overflow: hidden;
+      .regionTitle {
+        border-bottom: $border;
+        padding: 0.375rem 1rem;
+        > label {
+          font-weight: 500;
+          color: $text-primary;
+          display: block;
+          text-align: center;
+          small {
+            display: block;
+            font-size: 0.75rem;
+            color: $text-body;
+            padding-top: 2px;
+          }
+        }
+      }
+      .productWrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        .product {
+          position: relative;
+          border-right: $border;
+          &:last-of-type {
+            border-right: none;
+          }
+          .productTitle {
+            border-bottom: $border;
+            padding: 0.5rem 1rem;
+            background: #f6f6f6;
+            > label {
+              display: block;
+              text-align: center;
+              font-weight: 500;
+            }
+          }
+          .demandWrapper {
+            display: flex;
+            .quarter {
+              width: 130px;
+              border-right: $border;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              background: #f6f6f6;
+              text-align: center;
+              span {
+                padding: 0.5rem 0.25rem; 
+                border-bottom: $border;
+                line-height: 1.2;
+                &:last-of-type {
+                  border-bottom: none;
+                }
+                &.label {
+                  font-size: 0.75rem;
+                  padding: 0.25rem;
+                }
+              }
+            }
+            .demand {
+              display: flex;
+              flex-direction: column;
+              text-align: center;
+              border-right: $border;
+              &:last-of-type {
+                border-right: none;
+              }
+              > small {
+                display: block;
+                padding: 0.25rem 0;
+                text-align: center;
+                border-bottom: $border;
+                background: #f6f6f6;
+              }
+              > label {
+                font-size: 0.75rem;
+                padding: 0.25rem 0;  
+              }
+              input[type="text"] {
+                width: 100%;
+                max-width: 100%;
+                padding: 0.5rem 0.25rem;
+                border: none;
+                border-top: $border;
+                text-align: center;
+                font-size: 0.875rem;
+                font-weight: 500;
+                transition: $transition;
+                background: $bg-input-yellow;
+                &:focus {
+                  outline: none;
+                  background: none;
+                  color: $text-primary;
+                }
+                &:disabled {
+                  background: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    & + .actionButton {
+      position: relative; 
+      border-top: $border;
+      border-width: 2px;
+      padding-top: 1.25rem;
+      margin: 1.5rem 0 1rem; 
+      &:before {
+        content: "";
+        width: 140px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        z-index: 200;
+        background: $bg-primary;
+      }
+      &:after {
+        content: "";
+        width: 170px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        z-index: 100;
+        background: #fff;
+      } 
+    }
+  } 
+  .saveDefault {
+    position: relative;
+    border-top: $border;
+    padding-top: 2rem;
+    margin: 1rem 0 2rem;
+    h5 {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 2.25rem;
+      font-size: 1rem;
+      img {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+      }
+      & + p {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}

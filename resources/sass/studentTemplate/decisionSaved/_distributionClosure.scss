@@ -1,0 +1,96 @@
+// DISTRIBUTION CLOSURE
+.distributionClosure {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  .sectionHeader {
+    display: flex;
+    flex-direction: column;
+    border-bottom: $border;
+    padding: 0.5rem 0.75rem;
+    background: #eaeaea;
+    small.dclable{
+      color: $text-primary;
+      font-weight: 500;
+      & + label {
+        font-weight: 500;
+        & + small {
+          color: $text-gray;
+        }
+      }
+    }
+  }
+  .homeRegion {
+    width: 100%;
+    background: #f6f6f6;
+    border-bottom: $border;
+    ul {
+      margin: 0.75rem 0;
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 0.375rem;
+        padding: 0.25rem 0.75rem;
+        padding-top: 0;
+        span {
+          margin-right: auto;
+        }
+        i.fa {
+          color: $text-primary;
+        } 
+      }
+    }
+  }
+  .distribution {
+    flex: 1;
+    border-right: $border;
+    &:last-of-type {
+      border-right: none;
+    }
+    .listInformation {
+      display: flex;
+      flex-direction: column;
+      label[for="emergencyCarrier"] {
+        display: block;
+        padding: 0.375rem 0.75rem;
+        font-weight: 500; 
+        border-bottom: $border; 
+        margin-bottom: 0.5rem;
+        background: #f6f6f6;
+        small {
+          display: block;
+        }
+      }
+      label[for="crossDocking"] {
+        display: block;
+        padding: 0.375rem 0.75rem;
+        font-weight: 500;
+        background: #f6f6f6;
+        border-top: $border;
+        border-bottom: $border;
+        margin: 0.5rem 0; 
+        small {
+          display: block;
+        }
+      } 
+      ul {
+        margin-bottom: 0.25rem;
+        li {
+          position: relative;
+          display: flex;
+          align-items: center;
+          column-gap: 0.375rem;
+          padding: 0.25rem 0.75rem;
+          span {
+            margin-right: auto;
+          }
+          i.fa {
+            color: $text-primary;
+          } 
+        }
+      }
+    }
+    
+  }
+}

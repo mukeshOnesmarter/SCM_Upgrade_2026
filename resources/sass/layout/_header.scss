@@ -1,0 +1,21 @@
+.headerWrap {
+  @extend .wrapContainer;
+  border-bottom: $border; 
+  padding: 0.5rem 0;
+  .header {
+    @extend .innerContainer;
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    .item {
+      position: relative;
+      &.logo {
+        position: relative;
+        img {
+          max-height: 100px;
+        }
+      }
+    }
+  }
+}

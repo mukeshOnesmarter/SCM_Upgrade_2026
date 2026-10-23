@@ -1,0 +1,112 @@
+.dashboardTemplate {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  > h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  .tabs {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    ul {
+      list-style-type: none;
+      margin-bottom: 0;
+      display: flex;
+      column-gap: 1rem;
+      li {
+        position: relative;
+      }
+    }
+  }
+
+  .performaceScore {
+    display: flex;
+    margin-bottom: 1rem;
+    border: $border;
+    .item {
+      border-right: $border;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 500;
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+
+  }
+
+  .scorecardContainer {
+    display: flex;
+    flex-direction: column;
+    .scorecard {
+      border: $border;
+      border-radius: $radius;
+      margin-bottom: 1rem;
+      h4 {
+        margin-bottom: 0;
+        border-bottom: $border;
+        padding: 0.75rem;
+        color: $text-primary;
+        font-size: 1rem;
+      }
+      table {
+        display: table;
+        width: 100%;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        tr {
+          display: grid;
+          grid-template-columns: auto repeat(4, 200px);
+          th,
+          td {
+            border-right: $border;
+            &:last-of-type {
+              border-right: none;
+            }
+            &.score {
+              background: #f0f0f0;
+            }
+          }
+        }
+        thead {
+          display: block;
+          background: #f7f7f7;
+          border-bottom: $border;
+          tr {
+            position: relative;
+            th {
+              padding: 0.5rem 0.25rem;
+              text-align: center;
+              &.text-left {
+                text-align: left;
+              }
+              &.score {
+                color: $text-success;
+              }
+            }
+          }
+        }
+        tbody {
+          position: relative;
+          display: block;
+          tr {
+            border-bottom: $border;
+            &:last-of-type {
+              border-bottom: none;
+            }
+            td {
+              padding: 0.25rem;
+              text-align: center;
+              &.text-left {
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

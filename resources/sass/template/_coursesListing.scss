@@ -1,0 +1,163 @@
+.coursesListing {
+  display: flex;
+  flex-direction: column;
+  // PAGETITLE
+  .pageTitle {
+    position: relative;
+    padding: 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: $border;
+    border-width: 2px;
+    margin-bottom: 1rem;
+    &:before {
+      content: "";
+      width: 140px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      z-index: 200;
+      background: $bg-primary;
+    }
+    &:after {
+      content: "";
+      width: 170px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      z-index: 100;
+      background: #fff;
+    }
+    h4 {
+      color: $text-primary;
+      margin-bottom: 0.25rem;
+      & + p {
+        margin-bottom: 0rem;
+      }
+    }
+  }
+  // BUTTONCREATE
+  .buttonCreate {
+    text-align: right;
+    padding-bottom: 1rem;
+    a {
+      display: inline-block;
+      border-radius: 2rem;
+      padding: 0.25rem 1rem;
+      background: $bg-primary;
+      color: #fff;
+      position: relative;
+      padding-left: 2rem;
+      img {
+        position: absolute;
+        left: 4px;
+        top: 3px;
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  .invoiceDetail {
+    display: flex;
+    border: $border;
+    border-radius: $radius;
+    background: #f6f6f6;
+    .item {
+      border-right: $border;
+      &.receive {
+        color: $text-success;
+      }
+      &.balance {
+        color: $text-info;
+      }
+
+      &:last-of-type {
+        border-right: none;
+      }
+      h6 {
+        border-bottom: $border;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        small {
+          display: block;
+          font-weight: 400;
+          padding-top: 0.25rem;
+          font-size: 0.75rem;
+        }
+        & + span {
+          display: block;
+          padding: 0.5rem 1rem;
+          font-size: 1.25rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  // DATALISTINGS
+  .courseListings {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.75rem;
+    .headRow {
+      display: grid;
+      grid-template-columns: auto 160px 160px 120px 150px 30px;
+      margin-bottom: 1.25rem;
+      column-gap: 1.25rem;
+      padding: 0 0.75rem;
+      .item {
+        position: relative;
+        font-weight: 500;
+        small {
+          display: block;
+          font-weight: 400;
+          color: $text-gray;
+        }
+      }
+    }
+    .dataTable {
+      display: flex;
+      flex-direction: column;
+      border-radius: $radius;
+      border: $border;
+      .tableRow {
+        display: grid;
+        grid-template-columns: auto 160px 160px 120px 150px 30px;
+        align-items: center;
+        column-gap: 1.25rem;
+        border-bottom: $border;
+        padding: 0 0.75rem;
+        &:last-of-type {
+          border-bottom: none;
+        }
+        .item {
+          padding: 0.5rem 0;
+          > a {
+            display: inline-block;
+            padding: 0.25rem;
+          }
+          &.title {
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            small {
+              color: $text-success;
+              font-weight: 400;
+              &.text-danger {
+                color: $text-error;
+              }
+            }
+          }
+          small {
+            display: block;
+            color: $text-error;
+            &.success {
+              color: $text-success;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2532 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap);
+.wrapContainer, .wraptemplateBody, .adminTemplate, .wrapper, .courseDetail .wrapSection, .courseDetail, .staticTemplate .templateBody, .staticTemplate, .demandGeneration, .initialDemand, .simulationTemplate, .templateCrud {
+  width: 100%;
+}
+
+.innerContainer, .courseDetail .templateBody {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+}
+
+.modalWindow, .process, #pageLoader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #ed1c24;
+  transition: all ease 0.4s;
+  color: #fff;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.button i.fa {
+  margin-right: 0.25rem;
+}
+
+.success {
+  color: darkgreen !important;
+}
+
+.danger {
+  color: red !important;
+}
+
+.text-primary {
+  color: #ed1c24 !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-synthesis: antialiased;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  background: #fff;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+h1 small, h2 small, h3 small,
+.h1 small, .h2 small, .h3 small {
+  font-weight: normal;
+  font-size: 75%;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+ol ol, ul ul, ol ul, ul ol {
+  margin-bottom: 1rem;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: #ed1c24;
+  text-decoration: none;
+  transition: all ease 0.4s;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: #b7c1c4;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+small {
+  font-size: 85%;
+}
+
+#pageLoader {
+  display: block;
+}
+
+.sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #fff;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3) {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5) {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6) {
+  animation-delay: -0.6s;
+}
+
+.sk-chase-dot:nth-child(1):before {
+  animation-delay: -1.1s;
+}
+
+.sk-chase-dot:nth-child(2):before {
+  animation-delay: -1s;
+}
+
+.sk-chase-dot:nth-child(3):before {
+  animation-delay: -0.9s;
+}
+
+.sk-chase-dot:nth-child(4):before {
+  animation-delay: -0.8s;
+}
+
+.sk-chase-dot:nth-child(5):before {
+  animation-delay: -0.7s;
+}
+
+.sk-chase-dot:nth-child(6):before {
+  animation-delay: -0.6s;
+}
+
+@keyframes sk-chase {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot {
+  80%, 100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4);
+  }
+  100%, 0% {
+    transform: scale(1);
+  }
+}
+.process .processContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.process .processContainer .cv-spinner {
+  display: flex;
+  justify-content: center;
+}
+.process .processContainer .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px #ddd solid;
+  border-top: 4px solid #ed1c24;
+  border-radius: 50%;
+  animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.process .processContainer .is-hide {
+  display: none;
+}
+
+.templateCrud {
+  display: flex;
+  flex-direction: column;
+}
+.templateCrud .crud_header {
+  position: relative;
+  padding: 1rem 0;
+}
+.templateCrud .crud_header h5 {
+  margin-bottom: 0;
+  color: #ed1c24;
+}
+.templateCrud .crud_header h5:before {
+  content: "";
+  width: 70px;
+  height: 1px;
+  background: #ed1c24;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.templateCrud .dataForm {
+  padding: 1rem 0;
+}
+.templateCrud .dataForm .dataRow {
+  position: relative;
+  display: flex;
+  grid-column-gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.templateCrud .dataForm .dataRow .inputField {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.templateCrud .dataForm .dataRow .inputField label {
+  font-weight: 400;
+  color: #000000;
+}
+.templateCrud .dataForm .dataRow .inputField label i.fa {
+  margin-right: 0.25rem;
+}
+.templateCrud .dataForm .dataRow .inputField small.help_text {
+  font-size: 0.75rem;
+  color: #a7a7a7;
+}
+.templateCrud .dataForm .dataRow .inputField small.error_text {
+  font-size: 0.75rem;
+  color: #cc3300;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text],
+.templateCrud .dataForm .dataRow .inputField input[type=email],
+.templateCrud .dataForm .dataRow .inputField input[type=password],
+.templateCrud .dataForm .dataRow .inputField input[type=date],
+.templateCrud .dataForm .dataRow .inputField input[type=number],
+.templateCrud .dataForm .dataRow .inputField input[type=time],
+.templateCrud .dataForm .dataRow .inputField textarea {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:focus,
+.templateCrud .dataForm .dataRow .inputField input[type=time]:focus,
+.templateCrud .dataForm .dataRow .inputField textarea:focus {
+  outline: none;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:disabled,
+.templateCrud .dataForm .dataRow .inputField input[type=time]:disabled,
+.templateCrud .dataForm .dataRow .inputField textarea:disabled {
+  background: #f6f6f6;
+  cursor: not-allowed;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=email]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=password]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=date]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=number]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField input[type=time]:-moz-read-only, .templateCrud .dataForm .dataRow .inputField textarea:-moz-read-only {
+  cursor: not-allowed;
+  background: #f6f6f6;
+}
+.templateCrud .dataForm .dataRow .inputField input[type=text]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=email]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=password]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=date]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=number]:read-only,
+.templateCrud .dataForm .dataRow .inputField input[type=time]:read-only,
+.templateCrud .dataForm .dataRow .inputField textarea:read-only {
+  cursor: not-allowed;
+  background: #f6f6f6;
+}
+.templateCrud .dataForm .dataRow .inputField textarea {
+  resize: none;
+  height: 100%;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select {
+  width: 100%;
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select ::-moz-selection {
+  color: red;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select ::selection {
+  color: red;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox select:focus {
+  outline: none;
+}
+.templateCrud .dataForm .dataRow .inputField .selectbox:before {
+  content: "\f107";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_iconImage {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_iconImage img {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  font-weight: 500;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.email::before {
+  content: "\f003";
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.calendar::before {
+  content: "\f073";
+}
+.templateCrud .dataForm .dataRow .inputField .input_with_icon.phone::before {
+  content: "\f095";
+}
+.templateCrud .dataForm .dataRow .inputField .attachment {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  background: #fff;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item {
+  position: relative;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.thumbnail {
+  width: 135px;
+  height: 90px;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 100;
+  transform: translateY(-50%);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.source_file {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.source_file ul {
+  list-style-type: none;
+  font-size: 0.75rem;
+  margin: 0;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.attachment {
+  align-self: center;
+  position: relative;
+  padding-left: 2rem;
+  display: none;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.attachment img {
+  width: 22px;
+  position: absolute;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file {
+  width: 75px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file input[type=file] {
+  opacity: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  z-index: 100;
+  color: #ed1c24;
+}
+.templateCrud .dataForm .dataRow .inputField .attachment .item.input_file:hover span {
+  color: #339900;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  background: #fff;
+  align-items: stretch;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label {
+  position: relative;
+  padding: 0.5rem 1.25rem;
+  line-height: 1.5rem;
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label input[type=radio] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.templateCrud .dataForm .dataRow .inputField .updateStatus label:first-of-type {
+  background: #a3a3a3;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.templateCrud .dataForm .dataRow.action_button {
+  position: relative;
+  justify-content: flex-end;
+}
+.templateCrud .dataForm .dataRow.action_button .submit-btn,
+.templateCrud .dataForm .dataRow.action_button input[type=button],
+.templateCrud .dataForm .dataRow.action_button input[type=submit],
+.templateCrud .dataForm .dataRow.action_button button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.templateCrud .dataForm .dataRow.action_button .reset-btn,
+.templateCrud .dataForm .dataRow.action_button input[type=reset] {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  background: #404565;
+  border: 1px solid #dddcdb;
+  color: #fff;
+  cursor: pointer;
+}
+.templateCrud .dataForm .dataRow.action_button .reset-btn i.fa,
+.templateCrud .dataForm .dataRow.action_button input[type=reset] i.fa {
+  margin-right: 0.75rem;
+}
+
+.dataRowWrap {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.dataRowWrap .sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+.dataRowWrap .sectionHeader h5 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+
+.quarterDecisions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.quarterDecisions .quarter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+}
+.quarterDecisions .quarter > label {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ed1c24;
+}
+.quarterDecisions .quarter > label + ul {
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.quarterDecisions .quarter > label + ul li {
+  position: relative;
+  padding: 0.25rem 0.75rem;
+  padding-left: 2rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.quarterDecisions .quarter > label + ul li:last-of-type {
+  border-bottom: none;
+}
+.quarterDecisions .quarter > label + ul li:nth-of-type(even) {
+  background: #f6f6f6;
+}
+.quarterDecisions .quarter > label + ul li input {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.quarterDecisions .quarter:last-of-type {
+  margin-bottom: 0;
+}
+
+.documentSelection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+}
+.documentSelection .documentLibrary {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #dddcdb;
+}
+.documentSelection .documentLibrary label {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dddcdb;
+  color: #ed1c24;
+  font-weight: 500;
+  background: #a3a3a3;
+}
+.documentSelection .documentLibrary ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.documentSelection .documentLibrary ul li {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.documentSelection .documentLibrary ul li.disabled {
+  cursor: not-allowed;
+}
+.documentSelection .documentLibrary ul li input {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.documentSelection .documentLibrary ul li:last-of-type {
+  border-bottom: none;
+}
+
+.simulationTemplate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.simulationTemplate .commonHeader {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #dddcdb;
+  border-width: 2px;
+  margin-bottom: 1rem;
+}
+.simulationTemplate .commonHeader:before {
+  content: "";
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 200;
+  background: #ed1c24;
+}
+.simulationTemplate .commonHeader:after {
+  content: "";
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 100;
+  background: #fff;
+}
+.simulationTemplate .commonHeader h3 {
+  color: #ed1c24;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+.simulationTemplate .commonHeader h3 + p {
+  margin-bottom: 0rem;
+  font-weight: 400;
+}
+.simulationTemplate .pageTitle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.simulationTemplate .pageTitle h4 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.simulationTemplate .pageTitle h4 + p {
+  margin-bottom: 1rem;
+}
+.simulationTemplate .pageTitle + .buttonContainer {
+  text-align: right;
+}
+.simulationTemplate .pageTitle + .buttonContainer a {
+  display: inline-block;
+  background: #ed1c24;
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+.simulationTemplate .manageQuarter {
+  display: flex;
+  flex-direction: column;
+}
+.simulationTemplate .manageQuarter .alertNot {
+  position: relative;
+  padding: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  border-width: 2px;
+  margin-bottom: 2rem;
+}
+.simulationTemplate .manageQuarter .alertNot:before {
+  content: "";
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 200;
+  background: #ed1c24;
+}
+.simulationTemplate .manageQuarter .alertNot:after {
+  content: "";
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 100;
+  background: #fff;
+}
+.simulationTemplate .manageQuarter .alertNot h4 {
+  color: #ed1c24;
+  margin-bottom: 0.5rem;
+}
+.simulationTemplate .manageQuarter .alertNot h4 + p {
+  margin-bottom: 0.75rem;
+}
+.simulationTemplate .manageQuarter .alertNot h4 + p + p {
+  margin-bottom: 0rem;
+}
+.simulationTemplate .manageQuarter .alertNot form {
+  text-align: right;
+}
+.simulationTemplate .manageQuarter .alertNot form button {
+  display: inline-block;
+  background: #ed1c24;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.375rem 1rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.simulationTemplate .manageQuarter .simulationQuarter {
+  display: flex;
+  flex-direction: column;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterAutosetup {
+  display: flex;
+  border: 1px solid #dddcdb;
+  margin-bottom: 2rem;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterAutosetup .item {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-right: 1px solid #dddcdb;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterAutosetup .item:last-of-type {
+  border-right: none;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterAutosetup .item label[for=quarterTitle] {
+  display: block;
+  font-size: 1rem;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule {
+  display: flex;
+  flex-direction: column;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming {
+  display: grid;
+  grid-template-columns: 100px 40px auto;
+  border: 1px solid #dddcdb;
+  margin-bottom: 0.75rem;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming > label[for=title] {
+  font-weight: 500;
+  padding: 0.5rem;
+  border-right: 1px solid #dddcdb;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming > .removeQuarter {
+  background: #f6f6f6;
+  text-align: center;
+  border-right: 1px solid #dddcdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing {
+  position: relative;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm {
+  display: flex;
+  align-items: center;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm button {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #ed1c24;
+  color: #fff;
+  text-align: center;
+  border: 1px solid #dddcdb;
+  cursor: pointer;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 130px auto;
+  align-items: center;
+  position: relative;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > i.fa {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > label[for=title] {
+  display: block;
+  text-align: center;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > label[for=title] i.fa {
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField input[type=text] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dddcdb;
+  outline: none;
+  border-top: none;
+  border-bottom: none;
+}
+.simulationTemplate .manageQuarter .simulationQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField input[type=text]:focus {
+  background: #f6f6f6;
+}
+.simulationTemplate .facultySelection {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+.simulationTemplate .facultySelection > .actionButton {
+  text-align: right;
+  padding: 1rem;
+  background: #f6f6f6;
+}
+.simulationTemplate .facultySelection > .actionButton button {
+  display: inline-block;
+  background: #ed1c24;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.simulationTemplate .facultySelection .faculty {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  padding: 0.375rem 1rem;
+}
+.simulationTemplate .facultySelection .faculty:last-of-type {
+  border-bottom: none;
+}
+.simulationTemplate .facultySelection .faculty .item {
+  position: relative;
+}
+.simulationTemplate .facultySelection .faculty .item.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.initialDemand {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #dddcdb;
+}
+.initialDemand .productWrap {
+  display: flex;
+  flex-direction: column;
+}
+.initialDemand .productWrap .productHeader {
+  display: grid;
+  grid-template-columns: 230px auto;
+  font-size: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #dddcdb;
+}
+.initialDemand .productWrap .productHeader .item {
+  text-align: center;
+}
+.initialDemand .productWrap .productHeader .item.title {
+  border-right: 1px solid #dddcdb;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+.initialDemand .productWrap .productHeader .item.title h4 {
+  margin-bottom: 0;
+  color: #ed1c24;
+  font-size: 1rem;
+}
+.initialDemand .productWrap .productHeader .item.label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.initialDemand .productWrap .regionWrap {
+  display: grid;
+  grid-template-columns: 230px auto;
+}
+.initialDemand .productWrap .regionWrap .demand {
+  background: #f6f6f6;
+  border-right: 1px solid #dddcdb;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #dddcdb;
+}
+.initialDemand .productWrap .regionWrap .demand .item {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.initialDemand .productWrap .regionWrap .demand .item:last-of-type {
+  border-bottom: none;
+}
+.initialDemand .productWrap .regionWrap .region {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #dddcdb;
+}
+.initialDemand .productWrap .regionWrap .region .demanditem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.initialDemand .productWrap .regionWrap .region .demanditem .heading {
+  position: relative;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+.initialDemand .productWrap .regionWrap .region .demanditem .heading small {
+  display: block;
+  font-size: 0.75rem;
+}
+.initialDemand .productWrap .regionWrap .region .demanditem .item {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.initialDemand .productWrap .regionWrap .region .demanditem .item:last-of-type {
+  border-bottom: none;
+}
+
+.demandGeneration {
+  position: relative;
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.demandGeneration .regionInitialDemand {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.demandGeneration .regionInitialDemand .regionTitle {
+  padding: 0.75rem 0.25rem;
+  text-align: center;
+}
+.demandGeneration .regionInitialDemand .regionTitle h4 {
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+.demandGeneration .regionInitialDemand .productWrap {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+}
+.demandGeneration .regionInitialDemand .productWrap .product {
+  border-bottom: 1px solid #dddcdb;
+}
+.demandGeneration .regionInitialDemand .productWrap .product:last-of-type {
+  border-bottom: none;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .productTitle {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #dddcdb;
+  text-align: center;
+  background: #e6e6e6;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .productTitle h5 {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .demandChannels {
+  display: flex;
+  flex-direction: column;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .demandChannels .channel {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  align-items: center;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .demandChannels .channel:last-of-type {
+  border-bottom: none;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .demandChannels .channel .item {
+  position: relative;
+  flex: 1 1 0;
+}
+.demandGeneration .regionInitialDemand .productWrap .product .demandChannels .channel .item.title {
+  padding: 0.5rem;
+  background: #f6f6f6;
+  border-right: 1px solid #dddcdb;
+}
+
+.forecastDemand {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.forecastDemand .quartersWrap {
+  display: flex;
+  flex-direction: column;
+}
+.forecastDemand .quartersWrap .quarter {
+  position: relative;
+}
+.forecastDemand .quartersWrap .quarter .quarterTitle {
+  padding: 1rem 0;
+}
+.forecastDemand .quartersWrap .quarter .quarterTitle h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ed1c24;
+  margin-bottom: 0;
+}
+.forecastDemand .quartersWrap .productWrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.forecastDemand .quartersWrap .productWrap .porduct {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .porductTitle {
+  text-align: center;
+  font-weight: 500;
+  border-bottom: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding: 0.25rem 0;
+  font-size: 1.25rem;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap {
+  display: flex;
+  flex-direction: column;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm {
+  position: relative;
+  border-bottom: 1px solid #dddcdb;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm:last-of-type {
+  border-bottom: none;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .firmTitle {
+  font-weight: 600;
+  background: #f6f6f6;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  color: #ed1c24;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap {
+  border-top: 1px solid #dddcdb;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region {
+  position: relative;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region:nth-of-type(2) {
+  background: #f6f6f6;
+  border-left: 1px solid #dddcdb;
+  border-right: 1px solid #dddcdb;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .regionTitle {
+  text-align: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 0.75rem;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand .item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0.75rem;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand .item label {
+  font-weight: 500;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand .item ul {
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand .item ul li {
+  position: relative;
+}
+.forecastDemand .quartersWrap .productWrap .porduct .firmsWrap .firm .regionsWrap .region .demand .item ul li:last-of-type {
+  color: #339900;
+}
+
+.staticTemplate {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.staticTemplate .templateBody {
+  position: relative;
+}
+
+#staticTemplate {
+  position: relative;
+}
+#staticTemplate .facultyManagement,
+#staticTemplate .regionalInsights,
+#staticTemplate .firmDirectory,
+#staticTemplate .supplierOverview,
+#staticTemplate .managedProduct {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+#staticTemplate .facultyManagement .buttonCreate,
+#staticTemplate .regionalInsights .buttonCreate,
+#staticTemplate .firmDirectory .buttonCreate,
+#staticTemplate .supplierOverview .buttonCreate,
+#staticTemplate .managedProduct .buttonCreate {
+  text-align: right;
+  padding: 1rem;
+  background: #f6f6f6;
+  border-bottom: 1px solid #dddcdb;
+}
+#staticTemplate .facultyManagement .buttonCreate a,
+#staticTemplate .regionalInsights .buttonCreate a,
+#staticTemplate .firmDirectory .buttonCreate a,
+#staticTemplate .supplierOverview .buttonCreate a,
+#staticTemplate .managedProduct .buttonCreate a {
+  display: inline-block;
+  border-radius: 2rem;
+  padding: 0.25rem 1rem;
+  background: #ed1c24;
+  color: #fff;
+  position: relative;
+  padding-left: 2rem;
+}
+#staticTemplate .facultyManagement .buttonCreate a img,
+#staticTemplate .regionalInsights .buttonCreate a img,
+#staticTemplate .firmDirectory .buttonCreate a img,
+#staticTemplate .supplierOverview .buttonCreate a img,
+#staticTemplate .managedProduct .buttonCreate a img {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+}
+#staticTemplate .facultyManagement .tableRow,
+#staticTemplate .regionalInsights .tableRow,
+#staticTemplate .firmDirectory .tableRow,
+#staticTemplate .supplierOverview .tableRow,
+#staticTemplate .managedProduct .tableRow {
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  border-bottom: 1px solid #dddcdb;
+}
+#staticTemplate .facultyManagement .tableRow:last-of-type,
+#staticTemplate .regionalInsights .tableRow:last-of-type,
+#staticTemplate .firmDirectory .tableRow:last-of-type,
+#staticTemplate .supplierOverview .tableRow:last-of-type,
+#staticTemplate .managedProduct .tableRow:last-of-type {
+  border-bottom: none;
+}
+#staticTemplate .facultyManagement .tableRow .item,
+#staticTemplate .regionalInsights .tableRow .item,
+#staticTemplate .firmDirectory .tableRow .item,
+#staticTemplate .supplierOverview .tableRow .item,
+#staticTemplate .managedProduct .tableRow .item {
+  padding: 0.5rem;
+}
+#staticTemplate .facultyManagement {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+}
+#staticTemplate .facultyManagement .tableRow {
+  display: grid;
+  grid-template-columns: 70px auto;
+  align-items: center;
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid #dddcdb;
+  transition: all ease 0.4s;
+}
+#staticTemplate .facultyManagement .tableRow:last-of-type {
+  border-bottom: none;
+}
+#staticTemplate .facultyManagement .tableRow:hover {
+  background: #f6f6f6;
+}
+#staticTemplate .facultyManagement .tableRow .item {
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+#staticTemplate .facultyManagement .tableRow .item.profilePicture {
+  position: relative;
+  padding: 0;
+}
+#staticTemplate .facultyManagement .tableRow .item.profilePicture img {
+  border-radius: 100%;
+  width: 50px;
+}
+#staticTemplate .facultyManagement .tableRow .item.title {
+  position: relative;
+}
+#staticTemplate .facultyManagement .tableRow .item.title label[for=heading] {
+  font-weight: 500;
+}
+#staticTemplate .facultyManagement .tableRow .item.title label[for=heading] + small {
+  display: block;
+}
+#staticTemplate .facultyManagement .tableRow .item.title label[for=heading] + small i.fa {
+  color: #ed1c24;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+#staticTemplate .facultyManagement .tableRow .item.title label[for=heading] + small + small {
+  color: #a3a3a3;
+}
+#staticTemplate .supplierManagement {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+#staticTemplate .supplierManagement .supplier {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 0.75rem;
+}
+#staticTemplate .supplierManagement .supplier:last-of-type {
+  border-bottom: none;
+}
+#staticTemplate .supplierManagement .supplier small {
+  display: block;
+  color: #ed1c24;
+}
+#staticTemplate .supplierManagement .supplier small + label[for=heading] {
+  font-weight: 400;
+  display: block;
+}
+#staticTemplate .supplierManagement .supplier small + label[for=heading] + p {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  color: #7b7b7b;
+  font-weight: 400;
+}
+#staticTemplate .productManagement {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+#staticTemplate .productManagement .product {
+  display: flex;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+#staticTemplate .productManagement .product .productTitle {
+  padding: 0.5rem 0.75rem;
+  margin-right: auto;
+}
+#staticTemplate .productManagement .product .productTitle small {
+  display: block;
+  color: #ed1c24;
+}
+#staticTemplate .productManagement .product .productTitle small + label[for=heading] {
+  font-weight: 400;
+  display: block;
+}
+#staticTemplate .productManagement .product .productTitle small + label[for=heading] + span {
+  display: block;
+  color: #000000;
+}
+#staticTemplate .productManagement .product .productTitle small + label[for=heading] + span + p {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  color: #7b7b7b;
+  font-weight: 400;
+}
+#staticTemplate .productManagement .product .materialtype {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f6;
+  border-left: 1px solid #dddcdb;
+}
+#staticTemplate .productManagement .product .materialtype > label[for=materialtype] {
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+}
+#staticTemplate .productManagement .product .materialtype .collection {
+  position: relative;
+}
+#staticTemplate .productManagement .product .materialtype .collection ul {
+  list-style-type: none;
+  margin-left: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+#staticTemplate .productManagement .product .materialtype .collection ul li {
+  display: flex;
+  align-items: center;
+  padding-right: 0.75rem;
+}
+#staticTemplate .productManagement .product .materialtype .collection ul li span {
+  width: 40px;
+  margin-left: auto;
+  font-size: 0.75rem;
+}
+
+.coursesListing {
+  display: flex;
+  flex-direction: column;
+}
+.coursesListing .pageTitle {
+  position: relative;
+  padding: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  border-width: 2px;
+  margin-bottom: 1rem;
+}
+.coursesListing .pageTitle:before {
+  content: "";
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 200;
+  background: #ed1c24;
+}
+.coursesListing .pageTitle:after {
+  content: "";
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 100;
+  background: #fff;
+}
+.coursesListing .pageTitle h4 {
+  color: #ed1c24;
+  margin-bottom: 0.25rem;
+}
+.coursesListing .pageTitle h4 + p {
+  margin-bottom: 0rem;
+}
+.coursesListing .buttonCreate {
+  text-align: right;
+  padding-bottom: 1rem;
+}
+.coursesListing .buttonCreate a {
+  display: inline-block;
+  border-radius: 2rem;
+  padding: 0.25rem 1rem;
+  background: #ed1c24;
+  color: #fff;
+  position: relative;
+  padding-left: 2rem;
+}
+.coursesListing .buttonCreate a img {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+}
+.coursesListing .invoiceDetail {
+  display: flex;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  background: #f6f6f6;
+}
+.coursesListing .invoiceDetail .item {
+  border-right: 1px solid #dddcdb;
+}
+.coursesListing .invoiceDetail .item.receive {
+  color: #339900;
+}
+.coursesListing .invoiceDetail .item.balance {
+  color: #e5a000;
+}
+.coursesListing .invoiceDetail .item:last-of-type {
+  border-right: none;
+}
+.coursesListing .invoiceDetail .item h6 {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+}
+.coursesListing .invoiceDetail .item h6 small {
+  display: block;
+  font-weight: 400;
+  padding-top: 0.25rem;
+  font-size: 0.75rem;
+}
+.coursesListing .invoiceDetail .item h6 + span {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.coursesListing .courseListings {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.75rem;
+}
+.coursesListing .courseListings .headRow {
+  display: grid;
+  grid-template-columns: auto 160px 160px 120px 150px 30px;
+  margin-bottom: 1.25rem;
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+  padding: 0 0.75rem;
+}
+.coursesListing .courseListings .headRow .item {
+  position: relative;
+  font-weight: 500;
+}
+.coursesListing .courseListings .headRow .item small {
+  display: block;
+  font-weight: 400;
+  color: #a3a3a3;
+}
+.coursesListing .courseListings .dataTable {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  border: 1px solid #dddcdb;
+}
+.coursesListing .courseListings .dataTable .tableRow {
+  display: grid;
+  grid-template-columns: auto 160px 160px 120px 150px 30px;
+  align-items: center;
+  -moz-column-gap: 1.25rem;
+       column-gap: 1.25rem;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0 0.75rem;
+}
+.coursesListing .courseListings .dataTable .tableRow:last-of-type {
+  border-bottom: none;
+}
+.coursesListing .courseListings .dataTable .tableRow .item {
+  padding: 0.5rem 0;
+}
+.coursesListing .courseListings .dataTable .tableRow .item > a {
+  display: inline-block;
+  padding: 0.25rem;
+}
+.coursesListing .courseListings .dataTable .tableRow .item.title {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+.coursesListing .courseListings .dataTable .tableRow .item.title small {
+  color: #339900;
+  font-weight: 400;
+}
+.coursesListing .courseListings .dataTable .tableRow .item.title small.text-danger {
+  color: #cc3300;
+}
+.coursesListing .courseListings .dataTable .tableRow .item small {
+  display: block;
+  color: #cc3300;
+}
+.coursesListing .courseListings .dataTable .tableRow .item small.success {
+  color: #339900;
+}
+
+.courseDetail {
+  position: relative;
+}
+.courseDetail .courseTitle {
+  padding: 1rem 0;
+  border-bottom: 1px solid #dddcdb;
+}
+.courseDetail .courseTitle .titleContainer {
+  display: flex;
+}
+.courseDetail .courseTitle .titleContainer .item {
+  position: relative;
+}
+.courseDetail .courseTitle .titleContainer .item h5 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+.courseDetail .courseTitle .titleContainer .item h5 small {
+  display: block;
+}
+.courseDetail .courseTitle .titleContainer .item h5 + p {
+  margin-bottom: 0.75rem;
+}
+.courseDetail .courseTitle .titleContainer .item h5 + p + p {
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer {
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .headingContainer {
+  position: relative;
+  padding-top: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .headingContainer h3 {
+  margin-bottom: 0.25rem;
+  color: #ed1c24;
+  font-size: 1.5rem;
+}
+.courseDetail .wrapSection .sectionContainer .headingContainer h3 + p {
+  margin-bottom: 0.5rem;
+}
+.courseDetail .wrapSection .sectionContainer .paymentCollection {
+  position: relative;
+  margin-top: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .paymentCollection h5 {
+  margin-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .paymentCollection h5 + ul {
+  list-style-type: none;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices {
+  display: flex;
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border-right: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item:last-of-type {
+  border-right: none;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item label[for=title] {
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item label[for=title] + p {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item label[for=title] + p:before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: #ed1c24;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .quickStatices .item label[for=title] + p + strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse {
+  border: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence h6,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse h6 {
+  margin-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence h6 small,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse h6 small {
+  display: block;
+  font-weight: 400;
+  padding-top: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm {
+  padding: 0.5rem 0;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm label,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm label {
+  font-weight: 500;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm label + p,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm label + p {
+  margin-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm label + p + span,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm label + p + span {
+  display: block;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #a3a3a3;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px auto max-content;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField label,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField label {
+  font-weight: 500;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField label + p,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField label + p {
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField input[type=text]:-moz-read-only, .courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField input[type=text]:-moz-read-only {
+  text-align: center;
+  font-weight: 600;
+  background: #e6e6e6;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField input[type=text]:read-only,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField input[type=text]:read-only {
+  text-align: center;
+  font-weight: 600;
+  background: #e6e6e6;
+}
+.courseDetail .wrapSection .sectionContainer .simulationControlled .increaseLicence .templateCrud .dataForm .dataRow .inputField button,
+.courseDetail .wrapSection .sectionContainer .simulationControlled .deleteCourse .templateCrud .dataForm .dataRow .inputField button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  width: 140px;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl {
+  border: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding-left: 120px;
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl:before {
+  content: "";
+  width: 120px;
+  height: 100%;
+  background: url("/images/ChatGPT-Logo.png") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud {
+  position: relative;
+  border-left: 1px solid #dddcdb;
+  padding: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm {
+  padding: 0.5rem 0;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 140px;
+  align-items: center;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow .inputField {
+  position: relative;
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow .inputField h6 {
+  margin-bottom: 0.5rem;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow .inputField h6 small {
+  display: block;
+  font-weight: 400;
+  padding-top: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow .inputField h6 + p {
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .aiAnalysisControl .templateCrud .dataForm .dataRow .inputField button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl {
+  border: 1px solid #dddcdb;
+  background: #f6f6f6;
+  padding-left: 120px;
+  position: relative;
+  margin-top: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl:before {
+  content: "";
+  width: 120px;
+  height: 100%;
+  background: url("/images/co-faculty.png") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud {
+  display: grid;
+  grid-template-columns: auto 140px;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+  border-left: 1px solid #dddcdb;
+  padding: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item.actionButton {
+  border: none;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item h6 {
+  margin-bottom: 0.5rem;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item h6 small {
+  display: block;
+  font-weight: 400;
+  padding-top: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item h6 + p {
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .coFacultyControl .templateCrud .item a {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.courseDetail .wrapSection .sectionContainer .deploysuccess {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddcdb;
+  margin: 1rem 0;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .headingContainer {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dddcdb;
+  background: #f7f7f7;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .headingContainer h6 {
+  margin-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .headingContainer h6 + p {
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty {
+  display: flex;
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty:last-of-type {
+  border-bottom: none;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty .profile {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty .profile label {
+  display: block;
+  font-weight: 500;
+  color: #ed1c24;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty .profile label small {
+  display: block;
+  color: #000000;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .faculty .profile label + p {
+  margin-bottom: 0;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap {
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap > h6 {
+  margin-bottom: 0;
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #dddcdb;
+  font-size: 1rem;
+  background: #f6f6f6;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap > h6 small {
+  display: block;
+  padding-top: 0.25rem;
+  font-weight: 400;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList {
+  height: 285px;
+  overflow-y: scroll;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList .studentRecord {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList .studentRecord:last-of-type {
+  border-bottom: none;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList .studentRecord .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList .studentRecord .item label {
+  font-weight: 500;
+}
+.courseDetail .wrapSection .sectionContainer .facultyContainer .studentsWrap .studentList .studentRecord .item label + small {
+  display: block;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer {
+  border: 1px solid #dddcdb;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0rem 0 2rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer {
+  background: #fff;
+  display: flex;
+  border-bottom: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget {
+  flex: 1;
+  border-right: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget:last-of-type {
+  border-right: none;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetheading {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 0.75rem;
+  background: #f7f7f7;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetheading h5 {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetheading h5 + small {
+  color: #a3a3a3;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo {
+  position: relative;
+  padding: 0.75rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo.nopadding {
+  padding: 0;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo > p {
+  margin-bottom: 0.25rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo .faculty {
+  border-bottom: 1px solid #dddcdb;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo .faculty:last-of-type {
+  border-bottom: none;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo button {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  width: auto;
+  background-color: #ed1c24;
+  border: 1px solid #ed1c24;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo .inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo .inputContainer label {
+  font-weight: 500;
+  color: #ed1c24;
+  margin-bottom: 0.5rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .widgetsContainer .widget .widgetInfo .inputContainer label + input {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: inherit;
+  border: 1px solid #dddcdb;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  transition: all ease 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter {
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .widgetheading {
+  padding: 0.25rem 0.75rem;
+  border-bottom: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .widgetheading h5 {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .widgetheading h5 + small {
+  color: #a3a3a3;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule {
+  display: flex;
+  flex-direction: column;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming {
+  display: grid;
+  grid-template-columns: 100px 40px auto;
+  border-bottom: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming:last-of-type {
+  border-bottom: none;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming > label[for=title] {
+  font-weight: 500;
+  padding: 0.5rem;
+  border-right: 1px solid #dddcdb;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming > .removeQuarter {
+  background: #f6f6f6;
+  text-align: center;
+  border-right: 1px solid #dddcdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing {
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm {
+  display: flex;
+  align-items: center;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm button {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #ed1c24;
+  color: #fff;
+  text-align: center;
+  border: 1px solid #dddcdb;
+  cursor: pointer;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 130px auto;
+  align-items: center;
+  position: relative;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > i.fa {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > label[for=title] {
+  display: block;
+  text-align: center;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField > label[for=title] i.fa {
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField input[type=text] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dddcdb;
+  outline: none;
+  border-top: none;
+  border-bottom: none;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .manageQuarter .quarterSchedule .quarterdateTiming .timing .scheduleForm .inputField input[type=text]:focus {
+  background: #f6f6f6;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .deployButton {
+  text-align: center;
+  border-bottom: 1px solid #dddcdb;
+  padding: 1rem;
+  background: #f7f7f7;
+}
+.courseDetail .wrapSection .sectionContainer .modificationContainer .deployButton button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.adminTemplate {
+  position: relative;
+}
+.adminTemplate .asideLeft {
+  width: 15%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: #f6f6f6;
+  border-right: 1px solid #ed1c24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminTemplate .asideLeft .logo {
+  padding: 1rem 0;
+}
+.adminTemplate .asideLeft .navigation {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.adminTemplate .asideLeft .navigation ul {
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.adminTemplate .asideLeft .navigation ul li {
+  position: relative;
+}
+.adminTemplate .asideLeft .navigation ul li a {
+  display: inline-block;
+  padding: 0.25rem;
+  color: #000000;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.adminTemplate .asideLeft .navigation ul li a.active {
+  color: #ed1c24;
+}
+.adminTemplate .asideRight {
+  position: relative;
+  float: right;
+  width: 85%;
+}
+.adminTemplate .asideRight .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.adminTemplate .asideRight .header .item {
+  position: relative;
+}
+.adminTemplate .asideRight .header .item.brandLogo {
+  display: inline-block;
+}
+.adminTemplate .asideRight .header .item.activeUser {
+  position: relative;
+  display: flex;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  align-items: center;
+}
+.adminTemplate .asideRight .header .item.activeUser .item {
+  position: relative;
+}
+.adminTemplate .asideRight .header .item.activeUser .item.profileImage {
+  text-align: center;
+}
+.adminTemplate .asideRight .header .item.activeUser .item.profileImage img {
+  width: 42px;
+  border-radius: 100%;
+}
+.adminTemplate .asideRight .fotter {
+  display: flex;
+  padding: 1.25rem 2rem;
+  background: #f7f7f7;
+  position: relative;
+}
+.adminTemplate .asideRight .fotter::before {
+  content: "";
+  width: 80px;
+  height: 2px;
+  border-top: 1px solid #ed1c24;
+  position: absolute;
+  left: 2rem;
+  top: 0;
+}
+.adminTemplate .asideRight .fotter span {
+  display: inline-block;
+  padding: 0 0.25rem;
+  color: #ed1c24;
+}
+.adminTemplate .asideRight .adminLayout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+.adminTemplate .asideRight .adminLayout .contentSection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.adminTemplate .asideRight .adminLayout .contentSection .pageTitle {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dddcdb;
+  border-width: 2px;
+}
+.adminTemplate .asideRight .adminLayout .contentSection .pageTitle:before {
+  content: "";
+  width: 140px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 200;
+  background: #ed1c24;
+}
+.adminTemplate .asideRight .adminLayout .contentSection .pageTitle:after {
+  content: "";
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  z-index: 100;
+  background: #fff;
+}
+.adminTemplate .asideRight .adminLayout .contentSection .pageTitle h4 {
+  color: #ed1c24;
+  margin-bottom: 0.25rem;
+}
+.adminTemplate .asideRight .adminLayout .contentSection .pageTitle h4 + p {
+  margin-bottom: 0rem;
+}
+
+.wraptemplateBody .templateBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.screenAlert {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.7);
+}
+.screenAlert .alertContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 3rem;
+}
+.screenAlert .alert {
+  background: #eaf0ff;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  display: inline-flex;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  position: relative;
+  padding-left: 3rem;
+}
+.screenAlert .alert:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+.screenAlert .alert p {
+  margin-bottom: 0;
+}
+.screenAlert.success {
+  color: #339900;
+}
+.screenAlert.success .alert:before {
+  background-image: url("/images/alert-icon/success.svg");
+}
+.screenAlert.warning {
+  color: #741e11;
+}
+.screenAlert.warning .alert:before {
+  background-image: url("/images/alert-icon/warning.svg");
+}
+.screenAlert.error {
+  color: #cc3300;
+}
+.screenAlert.error .alert:before {
+  background-image: url("/images/alert-icon/error.svg");
+}
+
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: #ed1c24;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  opacity: 1;
+  transform: rotate(3deg) translate(0, -4px);
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+.nprogress-custom-parent #nprogress .bar,
+.nprogress-custom-parent #nprogress .spinner {
+  position: absolute;
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

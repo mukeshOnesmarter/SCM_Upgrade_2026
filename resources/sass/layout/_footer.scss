@@ -1,0 +1,8 @@
+.fotterWrap {
+  @extend .wrapContainer;
+  border-top: $border;
+  padding: 1rem 0;
+  .fotter {
+    @extend .innerContainer; 
+  }
+}
